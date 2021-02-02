@@ -1,6 +1,6 @@
 import styled from 'styled-components'
  
-const ActionsOptionsList = styled.div` 
+const OptionsList = styled.div` 
   display: none;
 	top: 50px;
 	right: 17px;
@@ -40,7 +40,7 @@ const ActionsOptionsList = styled.div`
 
 	@media (min-width: 642px){
 		top: 55px;
-		right: 40px;
+		right: 22px;
 	}
 
 	.switch {
@@ -97,25 +97,25 @@ const ActionsOptionsList = styled.div`
 	}
 `;
 
-function OptionsList(){
+function OptionsLst(){
   return(
-    <ActionsOptionsList>
+    <OptionsList>
       <ul>
         <li>Conta</li>
         <li>Privacidade</li>
         <li className="options-item">
           <div className="activevate-dark-mode">
-            <label for="darkMode">Modo escuro</label>
+            <label htmlFor="darkMode">Modo escuro</label>
             <div className="switch-container">
               <input id="darkMode" className="switch switch-shadow" type="checkbox" />
-              <label for="darkMode"></label>
+              <label htmlFor="darkMode"></label>
             </div>
           </div>
         </li>
         <li>Configirações</li>
       </ul>
-    </ActionsOptionsList>
+    </OptionsList>
   )
 }
 
-export default OptionsList;
+export default OptionsLst;
