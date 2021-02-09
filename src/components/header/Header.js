@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import Actions from  './Actions'
-import InputBlock from  './InputBlock'
-import LogoBlock from  './Logoblock'
+import styled from 'styled-components';
+import Actions from  './Actions';
+import InputBlock from  './InputBlock';
+import LogoBlock from  './LogoBlock';
 
 const Header = styled.header`
 	display: flex;
