@@ -1,7 +1,6 @@
 import styled from 'styled-components'
  
 const OptionsList = styled.div` 
-  display: none;
 	top: 50px;
 	right: 17px;
 	width: 250px;
@@ -97,9 +96,9 @@ const OptionsList = styled.div`
 	}
 `;
 
-function OptionsLst(){
+function OptionsLst({show}){
   return(
-    <OptionsList>
+    <OptionsList className={show || 'hidded' } visible="false" >
       <ul>
         <li>Conta</li>
         <li>Privacidade</li>

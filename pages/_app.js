@@ -23,6 +23,10 @@ const GlobalStyle = createGlobalStyle`
     color: #91A79A;
 	  font-family: Playfair Display;
   }
+  .hidded { 
+    display: none;
+  }
+
   .fill0, .fil1, .fill2 { transition: all 200ms; } 
   .fill0 { fill: #fefefe; }
   .fill1 { fill: #d9d9e2; }
@@ -31,7 +35,10 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
+    lighGreen: '#0070f3',
+    darkGreen: '#0070f3',
     primary: '#0070f3',
+    secundary: '#0070f3',
   },
 }
 

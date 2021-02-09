@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components'
 import OptionsList from './OptionsList'
 
@@ -97,9 +98,15 @@ Actions.options = styled.a`
 `;
 
 function ActionsContainer() {
+ const [show, setShow] = useState(false)
+    function toggleOptionsList() {
+
+      setShow(show ? false : true)
+    }
+
   return (
     <Actions>
-        <Actions.addWord href="/add-word">
+        <Actions.addWord href="/addWord">
 					<div className="add-icon" title="Adicionar palavra">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="13" width="5" height="30" rx="2" fill="white"/>
@@ -107,7 +114,7 @@ function ActionsContainer() {
             </svg>
 					</div>
 				</Actions.addWord>
-				<Actions.options>
+				<Actions.options onClick={toggleOptionsList}>
 					  <div className="user-icon">
 					  	<svg
 							version="1.1"
@@ -125,7 +132,7 @@ function ActionsContainer() {
 					  		<circle cx="292.13" cy="1707.86" r="292.13" />
 					  	</svg>
 					  </div>
-          <OptionsList style={{display: 'none'}}/>
+          <OptionsList show={show}/>
 				</Actions.options>
 			</Actions>
   )
