@@ -4,6 +4,7 @@ import Header from '../src/components/header/Header';
 const Form = styled.form`
 	display: flex;
 	flex-direction: column;
+  align-items: center;
 	height:fit-content;
 	width: 95vw;
 	margin: 10px 0 10px 0 ;
@@ -22,7 +23,8 @@ h1 {
 }
 
 .input-block {
-	margin: 15px 0 15px 0;   
+	margin: 15px 0 15px 0;
+  width: 100%;   
 }
 
 label {
@@ -71,11 +73,11 @@ div.button {
 }
 
 .primary-button{
-	display: flex;
+  display: flex;
 	align-items: center;
 	justify-content: center;
 
-	width: 100%;
+	width: 60%;
 	height: 35px;
 	background: #37C77F;
 	border-radius: 7.5px;
@@ -177,9 +179,9 @@ export default function addWord() {
 						<textarea name="see" id="related" type="text" ></textarea>
 					</div>
 
-					<div className="button">
+				
 						<button type="submit" className="primary-button">Salvar</button>
-					</div>
+				
 				</Form>
 			</main>
 		</>
