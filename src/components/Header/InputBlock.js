@@ -82,12 +82,13 @@ const InputBlock = styled.div`
 	}
 `;
 
-function InputBlck() {
+export default function InputBlck() {
   return (
-   <InputBlock>
+    <InputBlock>
       <form 
         action="queryWord" 
-        method="get" >
+        method="get" 
+      >
         <input required name="search" type="text" placeholder="Pesquisar..." title="Preencha o campo"/>
         <button type="submit" title="Buscar" alt="Buscar">
           <svg width="17" height="17" >
@@ -97,6 +98,5 @@ function InputBlck() {
       </form>
     </InputBlock>  
   );
-}
+};
 
-export default InputBlck;

@@ -1,6 +1,7 @@
 
 
 import styled from 'styled-components';
+import {motion} from 'framer-motion'
 import Header from '../src/components/Header';
 import Link from '../src/components/Link';
 
@@ -137,7 +138,18 @@ export default function Home() {
   return (
     <>
       <Header />
-      <WordsContainer className="animate-down">
+      <WordsContainer 
+        as={motion.section}
+        initial={'hidden'}
+        variants={{
+          show: { opacity: 1, y: 0} ,
+          hidden: {opacity: 0, y: '-10%'},
+        }}
+        transition={{
+          duration: .2
+        }}
+        animate={'show'}
+      >
         {/* {{#if ResponsedVocable }} */}
         {/* {{#each ResponsedVocable}} */}
         <div className="word animate-down">

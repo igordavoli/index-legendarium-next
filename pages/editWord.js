@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Header from '../src/components/Header';
+import { motion } from 'framer-motion'
 
 const Form = styled.form`
 	display: flex;
@@ -130,7 +131,12 @@ export default function addWord() {
 		<>
 			<Header/>
 			<main>
-				<Form action="saveWord" method="post" className="animate-down">
+				<Form 
+          animate={'show'}
+          action="saveWord" 
+          method="post" 
+          className="animate-down"
+        >
 					<div className="input-block">
 						<label forhtlm="vocable">Vocábulo*
 					<spam className="proper">

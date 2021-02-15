@@ -37,5 +37,5 @@ export default function Home() {
       <LogoBlock /> 
 			<InputBlock />
 		</Header>
-	)
-}
+	);
+};

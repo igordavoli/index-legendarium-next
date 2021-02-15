@@ -98,13 +98,9 @@ Actions.options = styled.a`
 	}
 `;
 
-function ActionsContainer() {
+export default function ActionsContainer() {
 	const [isOpen, setIsOpen] = useState(false)
-
-	function toggleOptionsList() {
-		setIsOpen(!isOpen)
-	}
-
+ 
 	return (
 		<Actions>
 			<Actions.addWord 
@@ -118,7 +114,12 @@ function ActionsContainer() {
 					</svg>
 				</div>
 			</Actions.addWord>
-			<Actions.options onClick={toggleOptionsList}>
+			<Actions.options 
+        onClick={(event) => {
+          event.stopPropagation();
+          setIsOpen(!isOpen);
+        }}
+      >
 				<div className="user-icon">
 					<svg
 						version="1.1"
@@ -138,6 +139,5 @@ function ActionsContainer() {
 				<OptionsList isOpen={isOpen} />
 			</Actions.options>
 		</Actions>
-	)
-}
-export default ActionsContainer;
+	);
+};

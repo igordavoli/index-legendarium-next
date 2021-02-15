@@ -239,9 +239,8 @@ const InputBlock = styled.form`
 export default function Home() {
   const [isOpen, setIsOpen] = React.useState(false)
 
-  function toggleOptionsList() {
-    setIsOpen(isOpen ? false : true)
-  }
+ 
+  
   return (
     <Landing>
       <Actions>
@@ -256,7 +255,7 @@ export default function Home() {
             </svg>
           </div>
         </Actions.addWord>
-        <Actions.options onClick={toggleOptionsList}>
+        <Actions.options onClick={() => setIsOpen(!isOpen)}>
           <div className="user-icon">
             <svg
               version="1.1"

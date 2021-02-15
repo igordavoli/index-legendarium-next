@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { scale } from 'style-value-types';
 
 const OptionsList = styled.div` 
 	top: 42px;
@@ -9,7 +10,6 @@ const OptionsList = styled.div`
 	position: absolute;
 	border-radius: 3px;
 	overflow: hidden;
-	transition: background-color  400ms;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	.switch-container {
 		display: flex;
@@ -96,24 +96,22 @@ const OptionsList = styled.div`
 		background-color: #5c5c5c;	   
 	}
 `;
-
-function OptionsLst({ isOpen }) {
- const [darkMode, setDarkMode] = React.useState(false)
-  
+export default function OptionsLst({ isOpen }) {
   return (
     <OptionsList
-      as={motion.nav}
-
+      as={motion.div}
+      initial={'closed'}
       animate={isOpen ? 'open' : 'closed'}
+
       variants={{
-        open: { opacity: 1, y: 10 },
-        closed: { opacity: 0 },
+        open: { display: ''},
+        closed: {display: 'none'},
       }}
       transition={{
-        duration: .25
+        duration: .0
       }}
     >
-      <ul>
+      <ul onClick={(event) => event.stopPropagation() }>
         <li>Conta</li>
         <li>Privacidade</li>
         <li className="options-item">
@@ -123,9 +121,8 @@ function OptionsLst({ isOpen }) {
               <input id="darkMode" className="switch switch-shadow" type="checkbox" />
               <label 
               // onClick={() => setDarkMode }
-                as={motion.section}
+                as={motion.nav}
                 variants={{
-
                 }}
                 transition={{
                   duration: .25
@@ -139,10 +136,9 @@ function OptionsLst({ isOpen }) {
         <li>Configirações</li>
       </ul>
     </OptionsList>
-  )
-}
+  );
+};
 
-export default OptionsLst;
 
 // const IOSSwitch = withStyles((theme) => ({
 //   root: {
