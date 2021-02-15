@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Header from '../src/components/header/Header';
+import Header from '../src/components/Header';
 
 const Form = styled.form`
 	display: flex;
@@ -13,7 +13,7 @@ const Form = styled.form`
 	border-radius: 7.5px;
 	line-height: 2.25rem;
 	font-size: 1.5rem;
-	transition: background 200ms;
+	transition: background-color  200ms;
 	color: #9bafa0;
 
 h1 {
@@ -81,7 +81,7 @@ div.button {
 	border-radius: 7.5px;
 	border: none;
 	cursor: pointer;
-	transition: background-color 200ms;
+	transition: background-color  200ms;
 	margin-top: 6.4rem;
 	font-size: 1.6rem;
 	line-height: 26px;

@@ -37,7 +37,7 @@ const InputBlock = styled.div`
   	background: #e7f0eb;
   	border: 1px solid #d3e5dc;
   	border-left: none;
-  	transition: background 200ms;
+  	transition: background-color  200ms;
   	outline: none;
 	}
 	button:hover {
@@ -45,7 +45,7 @@ const InputBlock = styled.div`
 	}
 	button svg {
   	fill: #27ae60;
-  	transition: all 200ms;
+  	transition: background-color  200ms;
 	}
 
 	@media (min-width: 648px) {
