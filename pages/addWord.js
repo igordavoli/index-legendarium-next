@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion'
 import Header from '../src/components/Header';
 
 const Form = styled.form`
@@ -133,7 +134,15 @@ export default function addWord() {
 		<>
 			<Header/>
 			<main>
-				<Form action="saveWord" method="post" className="animate-down">
+				<Form 
+          as={motion.section}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [.5, 1] }}
+          transition={{ duration: 0.1 }}
+          action="saveWord" 
+          method="post" 
+          className="animate-down"
+        >
 					<div className="input-block">
 						<label forhtlm="vocable">Vocábulo*
 					<spam className="proper">

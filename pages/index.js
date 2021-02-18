@@ -13,9 +13,6 @@ const Landing = styled.div`
 		#219653 0%,
 		#27ae60 100%
   );
-  .actions {
-    margin-bottom: 40px;
-  }
   @media (min-width: 768px) {
     padding-top: 20vh;
   }
@@ -147,7 +144,7 @@ const LogoBlock = styled.a`
   	transition: background-color  200ms;
   }
 	@media (min-width: 1025px) {
-    margin-top: 15rem;
+    margin-top: 15vh;
 		width: 300px;
     .logo-icon {
   	width: 7rem;
@@ -239,8 +236,6 @@ const InputBlock = styled.form`
 export default function Home() {
   const [isOpen, setIsOpen] = React.useState(false)
 
- 
-  
   return (
     <Landing>
       <Actions>

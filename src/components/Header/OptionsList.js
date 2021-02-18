@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { scale } from 'style-value-types';
 
-const OptionsList = styled.div` 
+const OptionsList = styled.div`
 	top: 42px;
 	right: 15px;
 	width: 250px;
@@ -15,7 +15,7 @@ const OptionsList = styled.div`
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-between;  
+		justify-content: space-between;
 	}
 	ul {
 		list-style: none;
@@ -30,107 +30,90 @@ const OptionsList = styled.div`
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-between;   
-		padding: .8rem 1.5rem .8rem 1.5rem; 
+		justify-content: space-between;
+		padding: .8rem 1.5rem .8rem 1.5rem;
 		background-color: #e2e2e2;
 	}
 	li:hover{
 		background-color: #cac9c938;
 	}
+	.switch {
+		display: none;
+	}
+	.switch-container label {
+    display: flex;
+    align-items: center;
+    width: 35px;
+    height: 15px;
+		border-radius: 22px;
+    border: 1px solid #bbbbbb;
+    background-color: #cacaca;
+    transition: background-color  300ms;
+
+	}
+  .switch:checked + label{
+    background-color: #77e9a2
+  }
+  .switch-container label div {
+    height: 13px;
+    width: 13px;
+    border-radius: 100%;
+    border: 1px solid #dddddd;
+    background-color: #dcdcdc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .switch:checked + label div {
+    background-color: #8f8f8f;
+    border-color: #8f8f8f;
+  }
 
 	@media (min-width: 642px){
 		top: 55px;
 		right: 22px;
 	}
 
-	.switch {
-		display: none;
-	}
-	label {
-		border-radius: 22px;  
-	}
-	.switch + label {
-		display: block;
-		position: relative;
-		cursor: pointer;
-		outline: none;
-		user-select: none;
-	}
-	.switch-shadow + label {
-		padding: 1px;
-		width: 35px;
-		height: 15px;
-		background-color: #cacaca;
-		border-radius: 22px;
-		transition: background-color  0.3s;		
-	}
-	.switch-shadow + label:before,
-	.switch-shadow + label:after {
-		display: block;
-		position: absolute;
-		top: 1px;
-		left: 1px;
-		bottom: 1px;
-		content: '';
-		border-radius: 22px; 	
-	}
-	.switch-shadow + label:before {
-		right: 1px;
-		background-color: #dcdcdc;
-		border-radius: 22px;
-		transition: background-color  0.4s;
-		border: 1px;	
-	}
-	.switch-shadow + label:after {
-		width: 13px;
-		background-color: #fff;
-		border-radius: 22px;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-		transition: background-color  0.4s;	
-	}
-	.switch-shadow:checked + label:before {
-		background-color: #77e9a2;	
-	}
-	.switch-shadow:checked + label:after {
-		transform: translateX(20px);
-		background-color: #5c5c5c;	   
-	}
+
 `;
 export default function OptionsLst({ isOpen }) {
+  const [isChecked, setIsChecked] = React.useState(false)
   return (
     <OptionsList
       as={motion.div}
       initial={'closed'}
       animate={isOpen ? 'open' : 'closed'}
-
       variants={{
-        open: { display: ''},
-        closed: {display: 'none'},
+        open: { opacity: 1, height: '' },
+        closed: { opacity: 0, height: 0 },
       }}
       transition={{
-        duration: .0
+        duration: .1
       }}
     >
       <ul onClick={(event) => event.stopPropagation() }>
         <li>Conta</li>
         <li>Privacidade</li>
         <li className="options-item">
+
           <div className="activevate-dark-mode">
             <label htmlFor="darkMode">Modo escuro</label>
-            <div className="switch-container">
-              <input id="darkMode" className="switch switch-shadow" type="checkbox" />
-              <label 
-              // onClick={() => setDarkMode }
-                as={motion.nav}
-                variants={{
-                }}
-                transition={{
-                  duration: .25
-                }}
-                htmlFor="darkMode"
-              >
-              </label>
-            </div>
+              <div className="switch-container">
+                <input
+                  id="darkMode"
+                  className="switch switch-shadow"
+                  type="checkbox"
+                  onClick={() => setIsChecked(!isChecked) }
+                />
+                <label htmlFor="darkMode">
+                  <motion.div
+                    animate={isChecked ? 'darkMode' : ''}
+                    initial={{ x: 0 }}
+                    variants={{
+                      darkMode: { x: '20px' }
+                    }}
+                  />
+                </label>
+              </div>
           </div>
         </li>
         <li>Configirações</li>

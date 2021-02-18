@@ -132,7 +132,10 @@ export default function addWord() {
 			<Header/>
 			<main>
 				<Form 
-          animate={'show'}
+          as={motion.section}
+          initial={{ opacity: 0 }}
+          animate={{ opacity:[.5, 1] }}
+          transition={{ duration: .1 }}
           action="saveWord" 
           method="post" 
           className="animate-down"
