@@ -16,13 +16,6 @@ const Actions = styled.div`
 		align-self: center;
 		order: +2;
 		width: 250px;
-		font-family: sans-serif;
-	}
-  @media (min-width: 1025px) {
-		align-self: center;
-		order: +2;
-		width: 250px;
-		font-family: sans-serif;
 	}
 `;
 
@@ -41,7 +34,7 @@ Actions.addWord = styled.a`
 		padding: 2.5px 0 2.5px 0;
     transition: background-color  200ms;
 		cursor: pointer;
-		border-radius: 4px;
+		border-radius: 5px;
 	}
 	.add-icon {
 		margin-left: 2.5px;
@@ -76,7 +69,7 @@ Actions.options = styled.a`
 		height: 25px;
 		padding: 2.5px 0 2.5px 0;
 		cursor: pointer;
-		border-radius: 4px;
+		border-radius: 8px;
 	}
 	.user-icon {
 		padding: 0;
@@ -100,6 +93,7 @@ Actions.options = styled.a`
 
 export default function ActionsContainer() {
 	const [isOpen, setIsOpen] = useState(false)
+  const [isHover, setIsHover] = useState(false)
  
 	return (
 		<Actions>
@@ -108,13 +102,16 @@ export default function ActionsContainer() {
         href="/addWord"
       >
 				<div className="add-icon" title="Adicionar palavra">
-					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg 
+            width="30" height="30" viewBox="0 0 30 30">
 						<rect x="13" width="5" height="30" rx="2" fill="white" />
 						<rect y="17" width="5" height="30" rx="2" transform="rotate(-90 0 17)" fill="white" />
 					</svg>
 				</div>
 			</Actions.addWord>
 			<Actions.options 
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
         onClick={(event) => {
           event.stopPropagation();
           setIsOpen(!isOpen);
@@ -136,8 +133,8 @@ export default function ActionsContainer() {
 						<circle cx="292.13" cy="1707.86" r="292.13" />
 					</svg>
 				</div>
-				<OptionsList isOpen={isOpen} />
 			</Actions.options>
+				<OptionsList isOpen={isOpen} isHover={isHover} />
 		</Actions>
 	);
 };

@@ -16,22 +16,18 @@ const Form = styled.form`
 	font-size: 1.5rem;
 	transition: background-color  200ms;
 	color: #9bafa0;
-
 h1 {
 	line-height: 3rem;
 	font-style: Playfair Display;
 }
-
 .input-block {
 	margin: 15px 0 15px 0;   
 }
-
 label {
 	display: flex;
 	justify-content: space-between;
 	font-family: sans-serif;
 }
-
 .selectors {
 	display: flex;
 	flex-direction: column;
@@ -40,14 +36,14 @@ label {
 }
 .selectors select {
 	width: 250px;
-	height: 30px;
+	height: 35px;
+  padding: 2.5px;
 	border: none;
 	border-radius: 5px;
 	background-color: #27ae60ee;
 	color: #fefefe;
 	font-size: 1.5rem;
 }
-
 input,
 textarea {
 	height: 35px;
@@ -70,7 +66,6 @@ div.button {
 	width: 100%;
 	margin: 0px 20px 20px 20px;  
 }
-
 .primary-button{
 	display: flex;
 	align-items: center;
@@ -91,12 +86,10 @@ div.button {
 }
 
 
-
 /* Dark-mode */
 .dark-mode {
 	background-color: #545859;
 }
-
 .dark-mode input,
 .dark-mode textarea {
 	background-color: #818a89;
@@ -106,12 +99,9 @@ div.button {
 
 /* Desktop version */
 @media (min-width: 642px) {
- 
-		width: 700px;
-	
- h1 {
-		margin-bottom: 20px;
-			
+	width: 700px;
+  h1 {
+	margin-bottom: 20px;	
 	}
  .selectors {
 		height: auto;
@@ -125,7 +115,6 @@ div.button {
 	}
 }
 `
-
 export default function addWord() {
 	return (
 		<>
@@ -191,6 +180,5 @@ export default function addWord() {
 				</Form>
 			</main>
 		</>
-
-	)
+	);
 }

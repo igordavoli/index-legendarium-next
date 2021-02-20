@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
+import Switch from '../Switch'
 import { scale } from 'style-value-types';
 
-const OptionsList = styled.div`
+const OptionsListElement = styled.div`
 	top: 42px;
 	right: 15px;
 	width: 250px;
@@ -11,12 +12,6 @@ const OptionsList = styled.div`
 	border-radius: 3px;
 	overflow: hidden;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	.switch-container {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-	}
 	ul {
 		list-style: none;
 	}
@@ -37,88 +32,49 @@ const OptionsList = styled.div`
 	li:hover{
 		background-color: #cac9c938;
 	}
-	.switch {
-		display: none;
-	}
-	.switch-container label {
-    display: flex;
-    align-items: center;
-    width: 35px;
-    height: 15px;
-		border-radius: 22px;
-    border: 1px solid #bbbbbb;
-    background-color: #cacaca;
-    transition: background-color  300ms;
-
-	}
-  .switch:checked + label{
-    background-color: #77e9a2
-  }
-  .switch-container label div {
-    height: 13px;
-    width: 13px;
-    border-radius: 100%;
-    border: 1px solid #dddddd;
-    background-color: #dcdcdc;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  }
-
-  .switch:checked + label div {
-    background-color: #8f8f8f;
-    border-color: #8f8f8f;
-  }
-
 	@media (min-width: 642px){
 		top: 55px;
-		right: 22px;
+		right: 17px;
 	}
-
-
 `;
-export default function OptionsLst({ isOpen }) {
-  const [isChecked, setIsChecked] = React.useState(false)
+
+
+export default function OptionsList({ isOpen, isHover }) {
+  let state;  
+
+  if (!isHover && !isOpen) state = 'closed'
+  if (isHover && !isOpen ) state = 'hover'
+  if (isOpen) state = 'open'
   return (
-    <OptionsList
+    <OptionsListElement
       as={motion.div}
-      initial={'closed'}
-      animate={isOpen ? 'open' : 'closed'}
+   
+      initial='closed'
+      
+      animate={ state }  
+
       variants={{
-        open: { opacity: 1, height: '' },
-        closed: { opacity: 0, height: 0 },
+        open: { opacity: 1, height: '', y: '0%',  display: '' },
+        closed: { opacity: 0, display: 'none'} ,
+        hover: { opacity: 0, height: '', y: '-5%', display: ''} 
       }}
       transition={{
-        duration: .1
+        duration: .25
       }}
     >
-      <ul onClick={(event) => event.stopPropagation() }>
+      <ul onClick={(event) => event.stopPropagation()}>
         <li>Conta</li>
         <li>Privacidade</li>
         <li className="options-item">
 
           <div className="activevate-dark-mode">
-            <label htmlFor="darkMode">Modo escuro</label>
-              <div className="switch-container">
-                <input
-                  id="darkMode"
-                  className="switch switch-shadow"
-                  type="checkbox"
-                  onClick={() => setIsChecked(!isChecked) }
-                />
-                <label htmlFor="darkMode">
-                  <motion.div
-                    animate={isChecked ? 'darkMode' : ''}
-                    initial={{ x: 0 }}
-                    variants={{
-                      darkMode: { x: '20px' }
-                    }}
-                  />
-                </label>
-              </div>
+            <label htmlFor="darkMode">Modo escuro</label>           
+            <Switch />
           </div>
         </li>
         <li>Configirações</li>
       </ul>
-    </OptionsList>
+    </OptionsListElement>
   );
 };
 
