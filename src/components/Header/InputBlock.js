@@ -8,7 +8,7 @@ const InputBlock = styled.div`
   	align-items: center;
   	justify-content: center;
   	
-  	border-radius: 7.5px 7.5px 7.5px 7.5px;
+  	border-radius: ${({ theme }) => theme.border.radius};
   	box-shadow: 0px 3.75062px 3.75062px rgba(0, 0, 0, 0.25);
 	}
 	input {
@@ -17,7 +17,11 @@ const InputBlock = styled.div`
   	padding: 2px 3px 2px 6px;
   	background: #f5f8fa;
   	border: 1px solid #d3e5dc;
-  	border-radius: 7.5px 0px 0px 7.5px;
+  	border-radius: 
+      ${({ theme }) => theme.border.radius} 
+      0px 
+      0px 
+      ${({ theme }) => theme.border.radius};
   	border-right: none;
   	font-size: 1.4rem;
   	color: #91a79a;
@@ -34,7 +38,11 @@ const InputBlock = styled.div`
   	align-items: center;
   	height: 35px;
   	width: 50px;
-  	border-radius: 0px 7.5px 7.5px 0px;
+  	border-radius: 
+      0px 
+      ${({ theme }) => theme.border.radius} 
+      ${({ theme }) => theme.border.radius} 
+      0px;
   	background: #e7f0eb;
   	border: 1px solid #d3e5dc;
   	border-left: none;
@@ -87,10 +95,10 @@ export default function InputBlck() {
   return (
     <InputBlock>
       <form 
-        action="queryWord" 
+        action="" 
         method="get" 
       >
-        <input required name="search" type="text" placeholder="Pesquisar..." title="Preencha o campo"/>
+        <input required name="search" type="text" placeholder="Pesquisar..." title="Pesquisar"/>
         <button type="submit" title="Buscar" alt="Buscar">
           <motion.svg
             whileTap={{scale: 0.80,}}

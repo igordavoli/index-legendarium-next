@@ -10,11 +10,7 @@ const Header = styled.header`
 	justify-content: center;
 	width: 100%;
 	padding: 7px;
-	background: radial-gradient(
-		50% 1445.4% at -1.91% 50%,
-		#219653 0%,
-		#27ae60 100%
-	);
+	background: ${({ theme }) => theme.colors.gradient};
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
 		position: relative; 
 		z-index: 2; 
@@ -26,7 +22,8 @@ const Header = styled.header`
 	
 		}
 		@media (min-width: 1025px) {
-			padding: 10px;
+			position: fixed;
+      padding: 10px;
 		}
 `;
 

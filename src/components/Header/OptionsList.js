@@ -7,16 +7,18 @@ const OptionsListElement = styled.div`
 	top: 42px;
 	right: 15px;
 	width: 250px;
-	background: #f0f0f0;
+	background: ${({ theme }) => theme.colors.primary};
 	position: absolute;
 	border-radius: 3px;
 	overflow: hidden;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	box-shadow: ${({ theme }) => theme.boxShadow};
+  color: ${({ theme }) => theme.font.colorPrimary};
 	ul {
 		list-style: none;
 	}
 	li {
 		padding: .8rem 1.5rem .8rem 1.5rem;
+    transition: background-color 200ms
 	}
 	.options-item {
 		padding: 0;
@@ -27,7 +29,7 @@ const OptionsListElement = styled.div`
 		align-items: center;
 		justify-content: space-between;
 		padding: .8rem 1.5rem .8rem 1.5rem;
-		background-color: #e2e2e2;
+		background-color: #cac9c968;
 	}
 	li:hover{
 		background-color: #cac9c938;
@@ -37,7 +39,6 @@ const OptionsListElement = styled.div`
 		right: 17px;
 	}
 `;
-
 
 export default function OptionsList({ isOpen, isHover }) {
   let state;  
@@ -77,58 +78,3 @@ export default function OptionsList({ isOpen, isHover }) {
     </OptionsListElement>
   );
 };
-
-
-// const IOSSwitch = withStyles((theme) => ({
-//   root: {
-//     width: 42,
-//     height: 26,
-//     padding: 0,
-//     margin: theme.spacing(1),
-//   },
-//   switchBase: {
-//     padding: 1,
-//     '&$checked': {
-//       transform: 'translateX(16px)',
-//       color: theme.palette.common.white,
-//       '& + $track': {
-//         backgroundColor: '#52d869',
-//         opacity: 1,
-//         border: 'none',
-//       },
-//     },
-//     '&$focusVisible $thumb': {
-//       color: '#52d869',
-//       border: '6px solid #fff',
-//     },
-//   },
-//   thumb: {
-//     width: 24,
-//     height: 24,
-//   },
-//   track: {
-//     borderRadius: 26 / 2,
-//     border: `1px solid ${theme.palette.grey[400]}`,
-//     backgroundColor: theme.palette.grey[50],
-//     opacity: 1,
-//     transition: theme.transitions.create(['background-color', 'border']),
-//   },
-//   checked: {},
-//   focusVisible: {},
-// }))(({ classes, ...props }) => {
-//   return (
-//     <Switch
-//       focusVisibleClassName={classes.focusVisible}
-//       disableRipple
-//       classes={{
-//         root: classes.root,
-//         switchBase: classes.switchBase,
-//         thumb: classes.thumb,
-//         track: classes.track,
-//         checked: classes.checked,
-//       }}
-//       {...props}
-//     />
-//   );
-// });
-

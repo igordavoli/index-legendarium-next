@@ -11,8 +11,8 @@ const Form = styled.form`
 	margin: 10px 0 10px 0 ;
 	padding: 20px 30px  20px  30px;
 	background-color: #f0f0f0;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 7.5px;
+	box-shadow: ${({ theme }) => theme.boxShadow};
+	border-radius: ${({ theme }) => theme.border.radius};
 	line-height: 2.25rem;
 	font-size: 1.5rem;
 	transition: background-color  200ms;
@@ -42,9 +42,9 @@ label {
 }
 .selectors select {
 	width: 250px;
-	height: 30px;
+	height: 25px;
 	border: none;
-	border-radius: 5px;
+	border-radius: ${({ theme }) => theme.border.radius};
 	background-color: #27ae60ee;
 	color: #fefefe;
 	font-size: 1.5rem;
@@ -57,7 +57,7 @@ textarea {
 	padding: 5px;
 	margin-top: 5px;
 	border: 1px solid #d3e5dc; 
-	border-radius: 7.5px;
+	border-radius: 5px;
 	font-size: 1.5rem;
 	line-height: 2rem;
 	font-family: sans-serif;
@@ -77,11 +77,10 @@ div.button {
   display: flex;
 	align-items: center;
 	justify-content: center;
-
 	width: 60%;
 	height: 35px;
 	background: #37C77F;
-	border-radius: 7.5px;
+	border-radius: 5px;
 	border: none;
 	cursor: pointer;
 	transition: background-color  200ms;

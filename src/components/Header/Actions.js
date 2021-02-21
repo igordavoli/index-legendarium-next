@@ -15,8 +15,11 @@ const Actions = styled.div`
 	@media (min-width: 768px) {
 		align-self: center;
 		order: +2;
-		width: 250px;
+		width: 150px;
 	}
+  @media (min-width: 1025px) {
+    width: 250px;
+  }
 `;
 
 Actions.addWord = styled.a`
@@ -32,16 +35,16 @@ Actions.addWord = styled.a`
 		width: 25px;
 		height: 25px;
 		padding: 2.5px 0 2.5px 0;
-    transition: background-color  200ms;
+    transition: background-color  300ms;
 		cursor: pointer;
-		border-radius: 5px;
+		border-radius: ${({ theme }) => theme.border.radius};
 	}
 	.add-icon {
 		margin-left: 2.5px;
 		padding: 2px;
 	}
 	.add-icon:hover {
-		background-color: #1a542b3d;
+		background-color: #77e9a233;
 	}
 `;
 
@@ -55,21 +58,18 @@ Actions.options = styled.a`
 	font-size: 1.3rem;
 	font-family: sans-serif;
 	color: #999;
-  border-radius: 5px;
-  transition: background-color  200ms;
+  border-radius: ${({ theme }) => theme.border.radius};
+  transition: background-color  300ms;
   :hover  {
-		background-color: #1a542b3d;
+		background-color: #77e9a233;
 	}
 	.user-icon,
 	.options-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
 		height: 25px;
 		padding: 2.5px 0 2.5px 0;
-		cursor: pointer;
-		border-radius: 8px;
 	}
 	.user-icon {
 		padding: 0;
@@ -116,6 +116,8 @@ export default function ActionsContainer() {
           event.stopPropagation();
           setIsOpen(!isOpen);
         }}
+        alt="Opções" 
+        title="Opções"
       >
 				<div className="user-icon">
 					<svg
@@ -126,7 +128,7 @@ export default function ActionsContainer() {
 						<circle className="fill1" cx="1670.401" cy="1367.015" r="536.222" />
 					</svg>
 				</div>
-				<div id="options-icon" className="options-icon" alt="Opções" title="Opções">
+				<div id="options-icon" className="options-icon">
 					<svg className="fill0" version="1.1" viewBox="0 0 584.26 2000">
 						<circle cx="292.13" cy="292.13" r="292.13" />
 						<circle cx="292.13" cy="1000" r="292.13" />

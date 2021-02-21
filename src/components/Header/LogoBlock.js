@@ -18,13 +18,13 @@ const LogoBlock = styled.a`
 	}
   @media (min-width: 765px) { 
     flex-direction: row;
-		max-width: 250px;
+		width: 200px;
     .logo-icon {
       margin-right: 5px;
     }
   }
 	@media (min-width: 1025px) {
-		width: 300px;
+		width: 250px;
     .logo-icon {
   	width: 5rem;
     margin-right: 5px;

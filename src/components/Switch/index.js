@@ -29,6 +29,7 @@ label div {
   border: 1px solid #dddddd;
   background-color: #dcdcdc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 200ms;
 }
 
 .switch:checked + label div {
@@ -50,10 +51,10 @@ export default function Switch() {
       />
       <label htmlFor="darkMode">
         <motion.div
-          animate={isChecked ? 'darkMode' : ''}
+          animate={isChecked ? 'isOn' : ''}
           initial={{ x: 0 }}
           variants={{
-            darkMode: { x: '20px' }
+            isOn: { x: '20px' }
           }}
         />
       </label>

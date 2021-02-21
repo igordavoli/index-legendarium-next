@@ -57,7 +57,7 @@ Actions.addWord = styled.a`
 		padding: 2.5px 0 2.5px 0;
     transition: background-color 200ms;
 		cursor: pointer;
-		border-radius: 4px;
+		border-radius: ${({ theme }) => theme.border.radius};
 	}
 	.add-icon {
 		margin-left: 2.5px;
@@ -78,7 +78,7 @@ Actions.options = styled.a`
 	font-size: 1.3rem;
 	font-family: sans-serif;
 	color: #999;
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.border.radius};
   transition: background-color  200ms;
   :hover  {
 		background-color: #1a542b3d;
@@ -88,11 +88,8 @@ Actions.options = styled.a`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
 		height: 25px;
 		padding: 2.5px 0 2.5px 0;
-		cursor: pointer;
-		border-radius: 4px;
 	}
 	.user-icon {
 		padding: 0;
