@@ -64,7 +64,8 @@ const WordsContainer = styled.main`
 	.word-options svg {
 		height: 25px;
 		width: 25px;
-		fill: #91A79A;   
+
+		fill: ${({ theme }) => theme.svg.secundaryFill};   
 	}
 	.no-result-message { 
 		align-self: center;
@@ -93,10 +94,10 @@ const WordsContainer = styled.main`
 
 	/* Dark-mode */
 	.dark-mode .word button {
-			background-color: #575b5c;
+		background-color: #575b5c;
 	}
 	.dark-mode .word-options svg  {
-			fill: #f0f0f0;
+		
 	}
 
 	/* Desktop version */
@@ -141,7 +142,7 @@ const WordsContainer = styled.main`
 		}
 		.word .edit:hover,
 		.word .share:hover {  
-			background-color: #e0e0e0dd;
+			background-color: ${({ theme }) => theme.colors.secundaryHover};
 		}
     @media (min-width: 1025px) {
       width: 50vw;

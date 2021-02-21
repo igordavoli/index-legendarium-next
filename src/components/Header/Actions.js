@@ -1,103 +1,15 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import OptionsList from './OptionsList';
-import Link from '../Link'
+import Link from '../Link';
+import { ActionsElement, AddWord, Options } from '../../styles/Actions';
 
-const Actions = styled.div`
-  align-self: flex-end;
-	display: flex;
-	align-items: center;
-	height: 30px;
-	width: 100%;
-	font-size: 1.3rem;
-	font-family: sans-serif;
-	color: #999;
-	@media (min-width: 768px) {
-		align-self: center;
-		order: +2;
-		width: 150px;
-	}
-  @media (min-width: 1025px) {
-    width: 250px;
-  }
-`;
-
-Actions.addWord = styled.a`
-  display: flex;
-	align-items: center;
-	justify-content: center; 
-	width: auto;
- 
-	.add-icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 25px;
-		height: 25px;
-		padding: 2.5px 0 2.5px 0;
-    transition: background-color  300ms;
-		cursor: pointer;
-		border-radius: ${({ theme }) => theme.border.radius};
-	}
-	.add-icon {
-		margin-left: 2.5px;
-		padding: 2px;
-	}
-	.add-icon:hover {
-		background-color: #77e9a233;
-	}
-`;
-
-Actions.options = styled.a`
-  margin-left: auto;
-  align-self: flex-end;
-	display: flex;
-	align-items: center; 
-  justify-content: center;
-	height: 30px;
-	font-size: 1.3rem;
-	font-family: sans-serif;
-	color: #999;
-  border-radius: ${({ theme }) => theme.border.radius};
-  transition: background-color  300ms;
-  :hover  {
-		background-color: #77e9a233;
-	}
-	.user-icon,
-	.options-icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 25px;
-		padding: 2.5px 0 2.5px 0;
-	}
-	.user-icon {
-		padding: 0;
-		margin-left: 2.5px;
-	}
-	.user-icon svg {
-    display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 25px;
-		height: 25px;
-	}
-	.options-icon {
-		width: 22.5px;  
-	}
-	.options-icon svg {
-		width: 10px;
-		height: 22.5px;
-	}
-`;
-
-export default function ActionsContainer() {
+export default function Actions() {
 	const [isOpen, setIsOpen] = useState(false)
   const [isHover, setIsHover] = useState(false)
  
 	return (
-		<Actions>
-			<Actions.addWord 
+		<ActionsElement>
+			<AddWord 
         as={Link}
         href="/addWord"
       >
@@ -108,8 +20,8 @@ export default function ActionsContainer() {
 						<rect y="17" width="5" height="30" rx="2" transform="rotate(-90 0 17)" fill="white" />
 					</svg>
 				</div>
-			</Actions.addWord>
-			<Actions.options 
+			</AddWord>
+			<Options 
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         onClick={(event) => {
@@ -135,8 +47,8 @@ export default function ActionsContainer() {
 						<circle cx="292.13" cy="1707.86" r="292.13" />
 					</svg>
 				</div>
-			</Actions.options>
+			</Options>
 				<OptionsList isOpen={isOpen} isHover={isHover} />
-		</Actions>
+		</ActionsElement>
 	);
 };
