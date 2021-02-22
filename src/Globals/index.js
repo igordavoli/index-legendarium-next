@@ -25,9 +25,6 @@ export default createGlobalStyle`
     color: #91A79A;
 	  font-family: Playfair Display;
   }
-  main {
-    margin-top: 69px;
-  }
   .hidded { 
     display: none;
   }
@@ -36,4 +33,10 @@ export default createGlobalStyle`
   .fill0 { fill: #fefefe; }
   .fill1 { fill: #d9d9e2; }
   .fill2 { fill: #a1a2a7; }
+ 
+ @media(min-width: 1025px){
+  main {
+    margin-top: 69px;
+  }
+  }
 `;

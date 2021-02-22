@@ -19,7 +19,7 @@ export default function OptionsList({ isOpen, isHover }) {
         hover: { opacity: 0, y: '-5%', display: '' },
         open: { opacity: 1, y: '0%',  display: '' },
       }}
-      transition={{ duration: .25 }}
+      transition={{ duration: .2 }}
     >
       <ul onClick={ (event) => event.stopPropagation() } >
         <li>Conta</li>
