@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const OptionsListElement = styled.div`
+export const OptionsListComponent = styled.div`
 	top: 42px;
 	right: 15px;
 	width: 250px;

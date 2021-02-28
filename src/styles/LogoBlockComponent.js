@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LogoBlockElement = styled.a`
+export const LogoBlockComponent = styled.a`
 	display: flex;
   flex-direction: column;
   align-items: center;

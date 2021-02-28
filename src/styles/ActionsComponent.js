@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ActionsElement = styled.div`
+export const ActionsComponent = styled.div`
 align-self: flex-end;
 display: flex;
 align-items: center;
@@ -19,7 +19,7 @@ color: #999;
 }
 `;
 
-export const AddWord = styled.a`
+export const AddWordComponent = styled.a`
 display: flex;
 align-items: center;
 justify-content: center; 
@@ -41,11 +41,11 @@ width: auto;
   padding: 2px;
 }
 .add-icon:hover {
-  background-color: ${({ theme }) => theme.colors.tertiaryHover };
+  background-color: ${({ theme }) => theme.colors.tertiaryHover};
 }
 `;
 
-export const Options = styled.a`
+export const OptionsComponent = styled.a`
 margin-left: auto;
 align-self: flex-end;
 display: flex;

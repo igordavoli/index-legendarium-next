@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SwitchElement = styled.div`
+export const SwitchComponent = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;

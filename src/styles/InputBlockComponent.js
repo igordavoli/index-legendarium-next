@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputBlockElement = styled.div`
+export const InputBlockComponent = styled.div`
   form {
     width: 96.62vw;
     display: flex;
