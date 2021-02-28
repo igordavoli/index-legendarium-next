@@ -1,10 +1,13 @@
-
+import { useContext } from 'react';
+import { ThemesContext } from '../../contexts/ThemesContext';
 import { motion } from 'framer-motion';
-import App from '../../../pages/_app';
 import { SwitchComponent } from '../../styles/SwitchComponent';
 
 export default function Switch() {
-  const [isChecked, setIsChecked] = React.useState(false)
+  const { switchTheme } = useContext(ThemesContext);
+  const [isChecked, setIsChecked] = React.useState(false);
+
+  switchTheme(isChecked ? 'dark' : 'light')
 
   return (
     <SwitchComponent>

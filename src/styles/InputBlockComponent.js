@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+const buttonbBackground = ({ theme }) => theme.colors.button;
+const inputBackground = ({ theme }) => theme.colors.inputColor;
+const primaryHoverColor = ({ theme }) => theme.colors.primaryHover;
+const primaryFontColor = ({ theme }) => theme.font.colorPrimary;
+const primarySvgFill = ({ theme }) => theme.svg.primaryFill;
+const borderRadius = ({ theme }) => theme.border.radius;
+const borderConfiguration = ({ theme }) => theme.border.border;
+
 export const InputBlockComponent = styled.div`
   form {
     width: 96.62vw;
@@ -7,7 +15,7 @@ export const InputBlockComponent = styled.div`
     align-items: center;
     justify-content: center;
 
-    border-radius: ${({ theme }) => theme.border.radius};
+    border-radius: ${borderRadius};
 
     box-shadow: 0px 3.75062px 3.75062px rgba(0, 0, 0, 0.25);
   }
@@ -16,19 +24,20 @@ export const InputBlockComponent = styled.div`
     height: 35px;
     padding: 2px 3px 2px 6px;
     font-size: 1.4rem;
-    color: ${({ theme }) => theme.font.colorPrimary};
-    transition: all 200ms;
 
-    border: ${({ theme }) => theme.border.border};
+    color: ${primaryFontColor};
+
+    border: ${borderConfiguration};
     border-right: none;
 
-    background: ${({ theme }) => theme.colors.inputColor};
+    background: ${inputBackground};
 
-    border-radius: ${({ theme }) => theme.border.radius} 0px 0px
-      ${({ theme }) => theme.border.radius};
+    border-radius: ${borderRadius} 0px 0px ${borderRadius};
+    
+    transition: all 200ms;
   }
   input::placeholder {
-    color: ${({ theme }) => theme.font.colorPrimary};
+    color: ${primaryFontColor};
     font-family: sans-serif;
     font-size: 1.2rem;
   }
@@ -39,25 +48,24 @@ export const InputBlockComponent = styled.div`
     height: 35px;
     width: 50px;
 
-    background: ${({ theme }) => theme.colors.button};
+    background: ${buttonbBackground};
 
-    border: ${({ theme }) => theme.border.border};
+    border: ${borderConfiguration};
 
-    border-radius: 0px ${({ theme }) => theme.border.radius}
-      ${({ theme }) => theme.border.radius} 0px;
+    border-radius: 0px ${borderRadius} ${borderRadius} 0px;
 
     border-left: none;
     transition: background-color 200ms;
     outline: none;
   }
   button:hover {
-    background-color: ${({ theme }) => theme.colors.primaryHover};
+    background-color: ${primaryHoverColor};
   }
   button svg {
     width: 17px;
     height: 17px;
     
-    fill: ${({ theme }) => theme.svg.primaryFill};
+    fill: ${primarySvgFill};
     
     transition: background-color 200ms;
   }

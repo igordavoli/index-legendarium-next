@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import InputBlock from '../src/components/Header/InputBlock'
-import OptionsList from '../src/components/Header/OptionsList';
-import Link from '../src/components/Link'
+import InputBlock from '../components/Header/InputBlock'
+import OptionsList from '../components/Header/OptionsList';
+import Link from '../components/Link'
 import styled from 'styled-components';
 
 const Landing = styled.div`

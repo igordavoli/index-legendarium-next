@@ -1,4 +1,5 @@
-import FormComponent from '../src/styles/FormComponent';
+import { motion } from 'framer-motion';
+import { FormComponent } from '../../styles/FormComponent';
 
 export default function Form() {
 

@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 
+const primaryBackground = ({ theme }) => theme.colors.primary;
+const secundaryBackgroundColor = ({ theme }) => theme.colors.secundaryHover;
+const primaryFontColor = ({ theme }) => theme.font.colorPrimary;
+const secundaryFontColor = ({ theme }) => theme.font.colorSecudary;
+const borderRadius = ({ theme }) => theme.border.radius;
+const secundarySvgFill = ({ theme }) => theme.svg.secundaryFill;
+const boxShadow = ({ theme }) => theme.boxShadow;
+
 export const WordsContainer = styled.main`
 	width: 96.62vw;
 	margin: 74px 5px 5px 5px;
 	padding-bottom: 10px;
 	display: flex;
 	flex-direction: column;
+
 	.word {
 		width:100%;
 		min-height: 129px;
@@ -16,32 +25,33 @@ export const WordsContainer = styled.main`
     font-family: Playfair Display;
     transition: box-shadow  200ms;
 		
-    border-radius: ${({ theme }) => theme.border.radius};
+    border-radius: ${borderRadius};
 		
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${primaryBackground};
 		
-    color: ${({ theme }) => theme.font.colorPrimary};
+    color: ${primaryFontColor};
     
-		box-shadow: ${({ theme }) => theme.boxShadow};
+		box-shadow: ${boxShadow};
 	}
-  .word:hover {
-    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
-  }
+ 
 	.word h2, 
 	.word p {
 		margin-bottom: 20px;
 		font-weight: normal;
 		line-height: 35px;
 	}
+
 	.word h2 {
-		color: ${({ theme }) => theme.font.colorSecudary};
+		color: ${secundaryFontColor};
 	}
+
 	.word .word-options {
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
 		margin-top: auto;
 	}
+
 	.word .edit,
 	.word .share {
 		display: flex;
@@ -52,18 +62,21 @@ export const WordsContainer = styled.main`
 		margin-right: 15px;
 		transition: background-color  200ms;
 		
-    border-radius: ${({ theme }) => theme.border.radius};
+    border-radius: ${borderRadius};
 	}
+
 	.word button {
 		background-color: transparent;
 		border: none;
 	}
+
 	.word-options svg {
 		height: 25px;
 		width: 25px;
 
-		fill: ${({ theme }) => theme.svg.secundaryFill};   
+		fill: ${secundarySvgFill};   
 	}
+
 	.no-result-message { 
 		align-self: center;
 		display: flex;
@@ -72,38 +85,32 @@ export const WordsContainer = styled.main`
 		width: auto;
 		padding: 20px;
 		
-    border-radius: ${({ theme }) => theme.border.radius};
+    border-radius: ${boxShadow};
 		
-    background-color: ${({ theme }) => theme.colors.primary};;
+    background-color: ${primaryBackground};
 		
-    box-shadow: ${({ theme }) => theme.boxShadow};
+    box-shadow: ${boxShadow};
 	}
+
 	.no-result-message p { 
 		margin: 0;
 		font-size: 1.7rem;
 		font-family: sans-serif;
 	}
+
 	.no-result-message p em{
 		color: #219653; 
 
-		font-family: ${({ theme }) => theme.font.primary};;
+		font-family: ${primaryFontColor};;
 	}
 
-	/* Dark-mode */
-	.dark-mode .word button {
-		background-color: #575b5c;
-	}
-	.dark-mode .word-options svg  {
-		
-	}
-
-	/* Desktop version */
 	@media (min-width: 642px) {
 		width: 95vw;
 		display: flex;
 		flex-flow: row wrap;
 		align-content: flex-start;
 		justify-content: center;
+
 		.word {
 			width: auto; 
 			min-width: 235px;
@@ -113,34 +120,43 @@ export const WordsContainer = styled.main`
 			line-height: 16px;
 			font-size: 1.5rem;
 		}
+
 		.word h2 {
 			font-size: 3rem ;
 		} 
+
 		.word p {
 			margin-bottom: 10px;
 			font-weight: normal;
 			line-height: 20px;
 			font-weight: 500;
 		}
+
 		.word-options{
 			justify-self: end;
 		}
+
 		.word-options svg {
 			height: 20px;
 			width: 20px;
 		}
+
 		.word .edit,
 		.word .share {
 			height: 25px;
 			width: 25px;
 			margin-right: 5px;
 
-			border-radius: ${({ theme }) => theme.border.radius};
+			border-radius: ${borderRadius};
 		}
+
 		.word .edit:hover,
 		.word .share:hover {  
-			background-color: ${({ theme }) => theme.colors.secundaryHover};
+			background-color: ${secundaryBackgroundColor};
 		}
+
+    /* Desktop version */
+
     @media (min-width: 1025px) {
       width: 50vw;
       max-width: 750px;

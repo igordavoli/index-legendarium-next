@@ -5,9 +5,11 @@ export const SwitchComponent = styled.div`
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+  
 .switch {
 	display: none;
 }
+
 label {
   display: flex;
   align-items: center;
@@ -17,8 +19,8 @@ label {
   border: 1px solid #bbbbbb;
   background-color: #cacaca;
   transition: background-color  300ms;
-
 	}
+
 .switch:checked + label{
   background-color: #77e9a2
 }

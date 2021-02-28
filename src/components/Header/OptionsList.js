@@ -1,11 +1,10 @@
-import { useContext } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Switch from '../Switch';
 import { OptionsListComponent } from '../../styles/OptionsListComponent';
-import { OptionsListContext } from '../../contexts/OptionsListContext';
 
-export default function OptionsList({ isOpen, isHover }) {
-  //const { } = useContext(OptionsListContext);
+export default function isChecked({ isOpen, isHover }) {
+  const [isOn, setIsOn] = useState(null);
 
   const state = (
     (!isHover && !isOpen) && 'closed' ||
@@ -31,7 +30,7 @@ export default function OptionsList({ isOpen, isHover }) {
         <li className="options-item">
           <div className="activevate-dark-mode">
             <label htmlFor="darkMode">Modo escuro</label>
-            <Switch onClick={""} />
+            <Switch action={(bool) => child(bool)} />
           </div>
         </li>
         <li>Configirações</li>
