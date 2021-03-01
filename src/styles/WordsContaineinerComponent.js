@@ -10,7 +10,7 @@ const boxShadow = ({ theme }) => theme.boxShadow;
 
 export const WordsContainer = styled.main`
 	width: 96.62vw;
-	margin: 74px 5px 5px 5px;
+	margin: 5px 5px 5px 5px;
 	padding-bottom: 10px;
 	display: flex;
 	flex-direction: column;
