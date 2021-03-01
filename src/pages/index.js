@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const Landing = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   padding: 10px 5px;
  	width: 100%;
@@ -142,7 +143,7 @@ const LogoBlock = styled.a`
   	transition: background-color  200ms;
   }
 	@media (min-width: 1025px) {
-    margin-top: 15vh;
+    margin-top: 25vh;
 		width: 300px;
     .logo-icon {
   	width: 7rem;

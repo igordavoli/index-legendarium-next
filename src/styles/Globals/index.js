@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+const primaryFont = ({ theme }) => theme.font.primary;
+const primaryBackgroundColor = ({ theme }) => theme.colors.secundary;
 
 export default createGlobalStyle`
   * {
@@ -8,23 +10,26 @@ export default createGlobalStyle`
   	box-sizing: border-box;	
     outline: none;    
   }
+
   :root {
 	font-size: 62.5%;
   }
+
   #__next {
 	  display: flex;
 	  flex-direction: column;
     align-items: center;
-    
 }
+
   body {
     min-width: 240px;
     font-weight: 400;
     font-size:  1rem;
-    background-color: ${({ theme }) => theme.colors.secundary};
+    background-color: ${primaryBackgroundColor};
     color: #91A79A;
-	  font-family: Playfair Display;
+	  font-family: ${primaryFont};
   }
+
   .hidded { 
     display: none;
   }

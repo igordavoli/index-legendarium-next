@@ -32,6 +32,7 @@ export const themes = {
       secundaryFill: '#91A79A',
     }
   },
+
   dark: {
     border: {
       radius: '7px',
