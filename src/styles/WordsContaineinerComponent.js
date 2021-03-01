@@ -160,6 +160,7 @@ export const WordsContainer = styled.main`
     @media (min-width: 1025px) {
       width: 50vw;
       max-width: 750px;
+      margin-top: 74px
     }
 		
 }
