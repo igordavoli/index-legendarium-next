@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { InputBlockComponent } from '../../styles/InputBlockComponent';
+import { InputBlockComponent } from '../Styled/InputBlockComponent';
 
 export default function InputBlock() {
   return (

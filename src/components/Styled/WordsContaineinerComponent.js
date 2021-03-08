@@ -22,7 +22,7 @@ export const WordsContainer = styled.main`
 		padding: 15px  20px  20px  20px;
     font-size: 2.25rem;
 		line-height: 2.25rem;
-    font-family: Playfair Display;
+   
     transition: box-shadow  200ms;
 		
     border-radius: ${borderRadius};

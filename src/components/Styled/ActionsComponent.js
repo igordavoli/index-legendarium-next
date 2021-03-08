@@ -24,28 +24,6 @@ export const ActionsComponent = styled.div`
   }
   `;
 
-export const AddWordComponent = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  border-radius: ${borderRadius};
-
-  :hover {
-    background-color: ${tertiaryHover};
-  }
-  .add-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    padding: 2.5px;
-    cursor: pointer;
-    font-size:0;
-    transition: background-color  300ms;
-  } 
-`;
-
 export const OptionsComponent = styled.a`
   margin-left: auto;
   align-self: flex-end;

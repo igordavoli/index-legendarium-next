@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Switch from '../Switch';
-import { OptionsListComponent } from '../../styles/OptionsListComponent';
+import { OptionsListComponent } from '../Styled/OptionsListComponent';
 
 export default function isChecked({ isOpen, isHover }) {
   const [isOn, setIsOn] = useState(null);

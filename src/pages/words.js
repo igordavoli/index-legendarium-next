@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Header from '../components/Header';
 import Link from '../components/Link';
-import { WordsContainer } from '../styles/WordsContaineinerComponent'
+import { WordsContainer } from '../components/Styled/WordsContaineinerComponent'
 
 const screenStates = {
   LOADING: 'LOADING',

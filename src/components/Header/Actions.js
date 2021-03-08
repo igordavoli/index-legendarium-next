@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { ActionsComponent, OptionsComponent } from '../Styled/ActionsComponent';
+import AddWord from './AddWord';
 import OptionsListComponent from './OptionsList';
-import Link from '../Link';
-import { ActionsComponent, AddWordComponent, OptionsComponent } from '../../styles/ActionsComponent';
 
 export default function Actions() {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,18 +9,7 @@ export default function Actions() {
 
   return (
     <ActionsComponent>
-      <AddWordComponent
-        as={Link}
-        href="/addWord"
-      >
-        <div className="add-icon" title="Adicionar palavra">
-          <svg
-            width="30" height="30" viewBox="0 0 30 30">
-            <rect x="13" width="5" height="30" rx="2" fill="white" />
-            <rect y="17" width="5" height="30" rx="2" transform="rotate(-90 0 17)" fill="white" />
-          </svg>
-        </div>
-      </AddWordComponent>
+      <AddWord />
       <OptionsComponent
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
@@ -48,7 +37,9 @@ export default function Actions() {
           </svg>
         </div>
       </OptionsComponent>
+
       <OptionsListComponent isOpen={isOpen} isHover={isHover} />
+
     </ActionsComponent>
   );
 };
