@@ -1,7 +1,7 @@
 import Link from '../Link';
-import { LogoBlockComponent } from '../../styles/LogoBlockComponent';
+import { LogoBlockComponent } from '../Styled/LogoBlockComponent';
 
-export default function LogoBlock() {
+export function LogoBlock() {
   return (
     <LogoBlockComponent
       as={Link}

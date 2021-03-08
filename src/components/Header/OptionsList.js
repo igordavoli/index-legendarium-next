@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Switch from '../Switch';
 import { OptionsListComponent } from '../Styled/OptionsListComponent';
 
-export default function isChecked({ isOpen, isHover }) {
+export function OptionsList({ isOpen, isHover }) {
   const [isOn, setIsOn] = useState(null);
 
   const state = (

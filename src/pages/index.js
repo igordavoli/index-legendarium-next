@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import InputBlock from '../components/Header/InputBlock'
-import OptionsList from '../components/Header/OptionsList';
+import { InputBlock } from '../components/Header/InputBlock'
+import { OptionsList } from '../components/Header/OptionsList';
 import Link from '../components/Link'
 import styled from 'styled-components';
 

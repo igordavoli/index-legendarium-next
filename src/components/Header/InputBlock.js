@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { InputBlockComponent } from '../Styled/InputBlockComponent';
 
-export default function InputBlock() {
+export function InputBlock() {
   return (
     <InputBlockComponent>
       <form action="" method="get" >

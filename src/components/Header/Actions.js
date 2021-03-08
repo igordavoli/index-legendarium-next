@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { ActionsComponent, OptionsComponent } from '../Styled/ActionsComponent';
 import AddWord from './AddWord';
-import OptionsListComponent from './OptionsList';
+import { OptionsList } from './OptionsList';
 
-export default function Actions() {
+export function Actions(props) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHover, setIsHover] = useState(false)
 
+  console.log(props)
+
+  const { displayAddButton } = props
   return (
     <ActionsComponent>
-      <AddWord />
+      {displayAddButton && <AddWord />}
       <OptionsComponent
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
@@ -38,7 +41,7 @@ export default function Actions() {
         </div>
       </OptionsComponent>
 
-      <OptionsListComponent isOpen={isOpen} isHover={isHover} />
+      <OptionsList isOpen={isOpen} isHover={isHover} />
 
     </ActionsComponent>
   );

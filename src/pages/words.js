@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion'
-import Header from '../components/Header';
+import { Header } from '../components/Header';
+import { WordsContainer } from '../components/Styled/WordsContaineinerComponent';
 import Link from '../components/Link';
-import { WordsContainer } from '../components/Styled/WordsContaineinerComponent'
+import { motion } from 'framer-motion';
+
 
 const screenStates = {
   LOADING: 'LOADING',
@@ -11,9 +12,11 @@ const screenStates = {
 
 export default function Home() {
   const [screenState, setScreenState] = React.useState(screenStates.SEARCH_RESULT)
+  const displayAddButton = true;
+
   return (
     <>
-      <Header />
+      <Header displayAddButton={displayAddButton} />
       <WordsContainer>
         {screenState === screenStates.SEARCH_RESULT && (
           <>
