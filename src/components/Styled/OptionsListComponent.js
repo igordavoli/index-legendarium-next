@@ -8,15 +8,11 @@ export const OptionsListComponent = styled.div`
 	top: 42px;
 	right: 15px;
 	width: 250px;
-
 	background: ${primaryBackground};
-	
   position: absolute;
 	border-radius: 3px;
 	overflow: hidden;
-	
   box-shadow: ${boxShadow};
-  
   color: ${primaryFontColor};
 	
   ul {
@@ -45,6 +41,10 @@ export const OptionsListComponent = styled.div`
 		background-color: #cac9c938;
 	}
   
+  /* 
+    # DESKTOP VERSION #
+  */
+
 	@media (min-width: 642px){
 		top: 55px;
 		right: 17px;

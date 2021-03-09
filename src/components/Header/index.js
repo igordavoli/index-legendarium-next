@@ -4,7 +4,7 @@ import { LogoBlock } from './LogoBlock';
 import { InputBlock } from './InputBlock';
 
 export function Header(props) {
-  const { displayAddButton } = props
+  const { displayAddButton } = props;
 
   return (
     <HeaderComponent >

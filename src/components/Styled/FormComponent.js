@@ -1,15 +1,12 @@
 import styled from 'styled-components';
-const secundaryBackgroundColor = ({ theme }) => theme.colors.secundaryHover;
 
+const secundaryBackgroundColor = ({ theme }) => theme.colors.secundaryHover;
 const boxShadow = ({ theme }) => theme.boxShadow;
 const inputBackground = ({ theme }) => theme.colors.inputColor;
-const buttonbBackground = ({ theme }) => theme.colors.button;
-const primaryHoverColor = ({ theme }) => theme.colors.primaryHover;
 const primaryFontColor = ({ theme }) => theme.font.colorPrimary;
-const primarySvgFill = ({ theme }) => theme.svg.primaryFill;
 const borderRadius = ({ theme }) => theme.border.radius;
-const borderConfiguration = ({ theme }) => theme.border.border;
 const formBackground = ({ theme }) => theme.colors.formBackground;
+
 export const FormComponent = styled.form`
 	display: flex;
 	flex-direction: column;
@@ -19,11 +16,8 @@ export const FormComponent = styled.form`
 	margin: 10px 0 10px 0 ;
 	padding: 20px 30px  20px  30px;
 	background-color: ${formBackground};
-	
   box-shadow: ${boxShadow};
-
 	border-radius: ${borderRadius};
-	
   line-height: 2.25rem;
 	font-size: 1.5rem;
 	color: #9bafa0;
@@ -61,6 +55,7 @@ label {
 	color: #fefefe;
 	font-size: 1.5rem;
 }
+
 input,
 textarea {
 	height: 35px;
@@ -105,14 +100,16 @@ div.button {
 	text-decoration: none;
 }
 
-/* Desktop version */
+/*
+  # DESKTOP VERSION #
+*/
 
 @media (min-width: 642px) {
 	width: 700px;
 	
  h1 {
 		margin-bottom: 20px;
-			
+
 	}
 
  .selectors {

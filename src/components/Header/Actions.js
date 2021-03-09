@@ -7,9 +7,8 @@ export function Actions(props) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHover, setIsHover] = useState(false)
 
-  console.log(props)
+  const { displayAddButton } = props;
 
-  const { displayAddButton } = props
   return (
     <ActionsComponent>
       {displayAddButton && <AddWord />}

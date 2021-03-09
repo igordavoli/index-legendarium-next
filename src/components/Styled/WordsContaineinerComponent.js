@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const primaryBackground = ({ theme }) => theme.colors.primary;
 const secundaryBackgroundColor = ({ theme }) => theme.colors.secundaryHover;
 const primaryFontColor = ({ theme }) => theme.font.colorPrimary;
-const secundaryFontColor = ({ theme }) => theme.font.colorSecudary;
 const borderRadius = ({ theme }) => theme.border.radius;
 const secundarySvgFill = ({ theme }) => theme.svg.secundaryFill;
 const boxShadow = ({ theme }) => theme.boxShadow;
@@ -22,27 +21,11 @@ export const WordsContainer = styled.main`
 		padding: 15px  20px  20px  20px;
     font-size: 2.25rem;
 		line-height: 2.25rem;
-   
     transition: box-shadow  200ms;
-		
     border-radius: ${borderRadius};
-		
     background-color: ${primaryBackground};
-		
     color: ${primaryFontColor};
-    
 		box-shadow: ${boxShadow};
-	}
- 
-	.word h2, 
-	.word p {
-		margin-bottom: 20px;
-		font-weight: normal;
-		line-height: 35px;
-	}
-
-	.word h2 {
-		color: ${secundaryFontColor};
 	}
 
 	.word .word-options {
@@ -61,7 +44,6 @@ export const WordsContainer = styled.main`
 		width: 30px;
 		margin-right: 15px;
 		transition: background-color  200ms;
-		
     border-radius: ${borderRadius};
 	}
 
@@ -73,7 +55,6 @@ export const WordsContainer = styled.main`
 	.word-options svg {
 		height: 25px;
 		width: 25px;
-
 		fill: ${secundarySvgFill};   
 	}
 
@@ -84,11 +65,8 @@ export const WordsContainer = styled.main`
 		align-items: center;
 		width: auto;
 		padding: 20px;
-		
     border-radius: ${boxShadow};
-		
     background-color: ${primaryBackground};
-		
     box-shadow: ${boxShadow};
 	}
 
@@ -100,7 +78,6 @@ export const WordsContainer = styled.main`
 
 	.no-result-message p em{
 		color: #219653; 
-
 		font-family: ${primaryFontColor};;
 	}
 
@@ -146,7 +123,6 @@ export const WordsContainer = styled.main`
 			height: 25px;
 			width: 25px;
 			margin-right: 5px;
-
 			border-radius: ${borderRadius};
 		}
 
@@ -161,7 +137,6 @@ export const WordsContainer = styled.main`
       width: 50vw;
       max-width: 750px;
       margin-top: 74px
-    }
-		
+    }	
 }
 `

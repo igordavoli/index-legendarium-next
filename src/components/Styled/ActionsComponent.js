@@ -13,11 +13,19 @@ export const ActionsComponent = styled.div`
   font-family: sans-serif;
   color: #999;
   
+  /* 
+    # IPAD PRO VERSION #
+  */
+
   @media (min-width: 768px) {
     align-self: center;
     order: +2;
     width: 150px;
   }
+
+  /* 
+    # DESKTOP VERSION #
+  */
   
   @media (min-width: 1025px) {
     width: 250px;

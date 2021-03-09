@@ -24,6 +24,7 @@ label {
 .switch:checked + label{
   background-color: #77e9a2
 }
+
 label div {
   height: 13px;
   width: 13px;

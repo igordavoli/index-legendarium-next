@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const primaryFont = ({ theme }) => theme.font.primary;
 const primaryBackgroundColor = ({ theme }) => theme.colors.secundary;
-
+const secundaryFontColor = ({ theme }) => theme.font.colorSecudary;
 export default createGlobalStyle`
   * {
   	margin: 0;
@@ -29,6 +29,17 @@ export default createGlobalStyle`
     color: #91A79A;
 	  font-family: ${primaryFont};
   }
+
+	h2, 
+	p {
+		margin-bottom: 20px;
+		font-weight: normal;
+		line-height: 35px;
+	}
+
+	h2 {
+		color: ${secundaryFontColor};
+	}
 
   .hidded { 
     display: none;
