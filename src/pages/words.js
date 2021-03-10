@@ -2,6 +2,8 @@ import { Header } from '../components/Header';
 import { WordsContainer } from '../components/Styled/WordsContaineinerComponent';
 import Link from '../components/Link';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { api } from '../services/api';
 
 
 const screenStates = {
@@ -13,6 +15,13 @@ const screenStates = {
 export default function Home() {
   const [screenState, setScreenState] = React.useState(screenStates.SEARCH_RESULT)
   const displayAddButton = true;
+
+  useEffect(() => {
+    api.get('words?search=amigo').then(res => {
+      console.log(res)
+    })
+  });
+
 
   return (
     <>

@@ -1,10 +1,14 @@
 import { motion } from 'framer-motion';
 import { InputBlockComponent } from '../Styled/InputBlockComponent';
+import { axios } from '../../services/api'
 
 export function InputBlock() {
+
+
+
   return (
     <InputBlockComponent>
-      <form action="" method="get" >
+      <form action="search" method="get" >
         <input required name="search" type="text" placeholder="Pesquisar..." title="Pesquisar" />
         <button type="submit" title="Buscar" alt="Buscar">
           <motion.svg whileTap={{ scale: 0.80 }}  >
@@ -14,5 +18,5 @@ export function InputBlock() {
       </form>
     </InputBlockComponent>
   );
-};
+}
 
