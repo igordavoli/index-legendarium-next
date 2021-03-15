@@ -1,14 +1,18 @@
+import { api } from "../../services/api";
 import { motion } from "framer-motion";
 import { InputBlockComponent } from "../Styled/InputBlockComponent";
-import { axios } from "../../services/api";
 
 export function InputBlock() {
-  const [search, setSearch] = React.useState();
+  const [search, setSearch] = React.useState("");
+
+  let response;
 
   async function handleSearchSubmit(event) {
     event.preventDefault();
 
-    await api.get(`/words?search=${search}`);
+    response = await api.get(`/words?search=${search}`);
+
+    console.log(response);
   }
 
   return (

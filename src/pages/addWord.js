@@ -6,6 +6,7 @@ import { api } from "../services/api";
 
 function FormAdd(props) {
   const router = useRouter();
+
   const [vocable, setVocable] = React.useState("");
   const [language, setLanguage] = React.useState("");
   const [type, setType] = React.useState("");
