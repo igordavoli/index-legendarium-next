@@ -1,23 +1,31 @@
-import { createContext } from "react";
+import { useState, createContext } from "react";
+import { api } from "../services/api";
 
 const SearchContext = createContext({});
 
 function SearchProvider({ children, ...rest }) {
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = useState("");
 
-  let response;
+  const [word, setWord] = useState(null);
 
   async function handleSearchSubmit(event) {
     event.preventDefault();
 
-    response = await api.get(`/words?search=${search}`);
+    const response = await api.get(`/words?search=${search}`);
 
-    console.log(response);
+    setWord(response.data);
   }
+
   return (
-    <SearchProvider value={(setSearch, handleSearchSubmit)}>
+    <SearchContext.Provider
+      value={{
+        setSearch,
+        handleSearchSubmit,
+        word,
+      }}
+    >
       {children}
-    </SearchProvider>
+    </SearchContext.Provider>
   );
 }
 

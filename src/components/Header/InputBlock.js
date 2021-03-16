@@ -1,19 +1,9 @@
-import { api } from "../../services/api";
 import { motion } from "framer-motion";
 import { InputBlockComponent } from "../Styled/InputBlockComponent";
+import { SearchContext } from "../../contexts/SearchContext";
 
 export function InputBlock() {
-  const [search, setSearch] = React.useState("");
-
-  let response;
-
-  async function handleSearchSubmit(event) {
-    event.preventDefault();
-
-    response = await api.get(`/words?search=${search}`);
-
-    console.log(response);
-  }
+  const { setSearch, handleSearchSubmit } = React.useContext(SearchContext);
 
   return (
     <InputBlockComponent>
