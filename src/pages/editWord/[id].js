@@ -1,13 +1,13 @@
-import { Header } from "../components/Header";
-import { api } from "../services/api";
-import { motion } from "framer-motion";
-import { FormComponent } from "../components/Styled/FormComponent";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+import { Header } from "../../components/Header";
+import { api } from "../../services/api";
+import { FormComponent } from "../../components/Styled/FormComponent";
 
 function FormEdit(props) {
   const router = useRouter();
 
-  const toEditWord = props.props;
+  const toEditWord = props.props.word;
 
   const [vocable, setVocable] = React.useState(toEditWord.vocable);
   const [language, setLanguage] = React.useState(toEditWord.language);
@@ -135,24 +135,29 @@ function FormEdit(props) {
   );
 }
 
-export default function addWord() {
+export default function addWord(props) {
   const displayAddButton = true;
-  const word = {
-    vocable: "Helm",
-    language: "Westron",
-    type: "place",
-    meaning: "dczczcdv",
-    about: "fdhfgjhkhjl",
-    pages: "dfsdfds",
-    see_too: "fdfgdfhdf",
-  };
-
+  const word = props;
+  //console.log(props);
   return (
     <>
       <Header displayAddButton={displayAddButton} />
       <main>
-        <FormEdit props={word} />
+        <FormEdit props={props} />
       </main>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  console.log(id);
+  const response = await api.get(`/editWord/${id}`);
+
+  console.log(response);
+  const word = response.data;
+
+  return {
+    props: { word },
+  };
 }
