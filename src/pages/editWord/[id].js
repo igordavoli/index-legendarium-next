@@ -138,7 +138,6 @@ function FormEdit(props) {
 export default function addWord(props) {
   const displayAddButton = true;
   const word = props;
-  //console.log(props);
   return (
     <>
       <Header displayAddButton={displayAddButton} />

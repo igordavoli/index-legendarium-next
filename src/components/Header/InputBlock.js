@@ -3,7 +3,9 @@ import { InputBlockComponent } from "../Styled/InputBlockComponent";
 import { SearchContext } from "../../contexts/SearchContext";
 
 export function InputBlock() {
-  const { setSearch, handleSearchSubmit } = React.useContext(SearchContext);
+  const { setSearch, handleSearchSubmit, search } = React.useContext(
+    SearchContext
+  );
 
   return (
     <InputBlockComponent>
@@ -14,6 +16,7 @@ export function InputBlock() {
           type='text'
           placeholder='Pesquisar...'
           title='Pesquisar'
+          value={search}
           onChange={event => setSearch(event.target.value)}
         />
         <button type='submit' title='Buscar' alt='Buscar'>

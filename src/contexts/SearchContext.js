@@ -1,11 +1,13 @@
 import { useState, createContext } from "react";
+import { useRouter } from "next/router";
 import { api } from "../services/api";
 
 const SearchContext = createContext({});
 
 function SearchProvider({ children, ...rest }) {
-  const [search, setSearch] = useState("");
+  const router = useRouter();
 
+  const [search, setSearch] = useState("");
   const [word, setWord] = useState(null);
 
   async function handleSearchSubmit(event) {
@@ -14,6 +16,8 @@ function SearchProvider({ children, ...rest }) {
     const response = await api.get(`/words?search=${search}`);
 
     setWord(response.data);
+
+    router.push(`/words?search=${search}`);
   }
 
   return (
@@ -22,6 +26,7 @@ function SearchProvider({ children, ...rest }) {
         setSearch,
         handleSearchSubmit,
         word,
+        search,
       }}
     >
       {children}
