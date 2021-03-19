@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const primaryFont = ({ theme }) => theme.font.primary;
 const primaryBackgroundColor = ({ theme }) => theme.colors.secundary;
@@ -53,6 +53,7 @@ export default createGlobalStyle`
  @media(min-width: 1025px){
   main {
     margin-top: 69px;
+    min-height:100vh
   }
   }
 `;
