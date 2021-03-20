@@ -1,3 +1,4 @@
+import { useState, useContext } from "react";
 import { Header } from "../components/Header";
 import { WordsContainer } from "../components/Styled/WordsContaineinerComponent";
 import Link from "../components/Link";
@@ -5,22 +6,12 @@ import { SearchContext } from "../contexts/SearchContext";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-const screenStates = {
-  LOADING: "LOADING",
-  SEARCH_RESULT: "SEARCH_RESULT",
-  SEARCH_NO_RESULT: "SEARCH_NO_RESULT",
-};
-
 export default function Home() {
   const displayAddButton = true;
-  const [screenState, setScreenState] = React.useState(
-    screenStates.SEARCH_RESULT
-  );
-  const { word } = React.useContext(SearchContext);
 
-  useEffect(() => {
-    setScreenState(screenStates.SEARCH_RESULT);
-  }, [word]);
+  const { searchedWord, word, message } = useContext(SearchContext);
+
+  useEffect(() => {}, [word, message]);
 
   return (
     <>
@@ -98,10 +89,10 @@ export default function Home() {
             );
           })}
 
-        {screenState === screenStates.SEARCH_NO_RESULT && (
+        {message === "Word not finded!" && (
           <div className='no-result-message'>
             <p>
-              O vocábulo <em>Lorem Ipsum </em> não foi encontrado
+              O vocábulo <em>{searchedWord}</em> não foi encontrado
             </p>
           </div>
         )}

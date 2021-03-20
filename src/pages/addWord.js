@@ -19,7 +19,7 @@ function FormAdd(props) {
     event.preventDefault();
 
     // # TEMPORALY HARDCODED #
-    const user_id = "ab9bbc76-cf45-4571-8386-471b131cefb2";
+    const user_id = "115f3a6a-673c-46c9-a3f4-7d109a9c3472";
 
     const word = {
       user_id,
