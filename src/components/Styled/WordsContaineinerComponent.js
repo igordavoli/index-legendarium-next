@@ -2,23 +2,24 @@ import styled from "styled-components";
 
 const primaryBackground = ({ theme }) => theme.colors.primary;
 const secundaryBackgroundColor = ({ theme }) => theme.colors.secundaryHover;
+const primaryFont = ({ theme }) => theme.font.primary;
 const primaryFontColor = ({ theme }) => theme.font.colorPrimary;
+const tertiaryFontColor = ({ theme }) => theme.font.tertiaryColor;
 const borderRadius = ({ theme }) => theme.border.radius;
 const secundarySvgFill = ({ theme }) => theme.svg.secundaryFill;
 const boxShadow = ({ theme }) => theme.boxShadow;
 
 export const WordsContainer = styled.main`
-  width: 96.62vw;
-  margin: 5px 5px 5px 5px;
-  padding-bottom: 10px;
+  width: 100%;
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
 
   .word {
     width: 100%;
     min-height: 129px;
-    margin-top: 10px;
-    padding: 15px 20px 20px 20px;
+    margin-bottom: 1rem;
+    padding: 1.5rem 2rem 2rem 2rem;
     font-size: 2.25rem;
     line-height: 2.25rem;
     transition: box-shadow 200ms;
@@ -77,8 +78,8 @@ export const WordsContainer = styled.main`
   }
 
   .no-result-message p em {
-    color: #219653;
-    font-family: ${primaryFontColor};
+    color: ${tertiaryFontColor};
+    font-family: ${primaryFont};
   }
 
   @media (min-width: 642px) {
@@ -134,7 +135,7 @@ export const WordsContainer = styled.main`
     /* Desktop version */
 
     @media (min-width: 1025px) {
-      width: 50vw;
+      width: 100%;
       max-width: 750px;
       margin-top: 74px;
 

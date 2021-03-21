@@ -3,13 +3,13 @@ import { InputBlockComponent } from "../Styled/InputBlockComponent";
 import { SearchContext } from "../../contexts/SearchContext";
 
 export function InputBlock() {
-  const { setSearch, handleSearchSubmit, search } = React.useContext(
+  const { setSearch, handlerSearchSubmit, search } = React.useContext(
     SearchContext
   );
 
   return (
     <InputBlockComponent>
-      <form onSubmit={handleSearchSubmit}>
+      <form onSubmit={handlerSearchSubmit}>
         <input
           required
           name='search'

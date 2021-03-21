@@ -11,7 +11,7 @@ export default function Home() {
 
   const { searchedWord, word, message } = useContext(SearchContext);
 
-  useEffect(() => {}, [word, message]);
+  //useEffect(() => {}, [word, message]);
 
   return (
     <>
@@ -33,8 +33,11 @@ export default function Home() {
                 key={word.id}
               >
                 <h2>
-                  <em>{word.vocable}</em>
+                  <em>
+                    <Link href={`/word/${word.id}`} children={word.vocable} />
+                  </em>
                 </h2>
+
                 <p>{word.meaning}</p>
                 <p>Sobre</p>
                 <p>{word.about}</p>

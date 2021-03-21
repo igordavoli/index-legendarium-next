@@ -32,8 +32,6 @@ function FormAdd(props) {
       see_too,
     };
 
-    console.log(word);
-
     await api.post("addWord", word);
 
     alert("Salvo");
@@ -44,10 +42,7 @@ function FormAdd(props) {
   return (
     <FormComponent onSubmit={handleSubmit}>
       <div className='input-block'>
-        <label forhtlm='vocable'>
-          Vocábulo*
-          <spam className='proper'></spam>
-        </label>
+        <label forhtlm='vocable'>Vocábulo*</label>
         <input
           required
           name='vocable'

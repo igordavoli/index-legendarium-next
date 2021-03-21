@@ -27,7 +27,8 @@ export const themes = {
       primary: "Playfair Display",
       secundary: "sans-serif",
       colorPrimary: "#67776b",
-      colorSecudary: "#91A79A",
+      SecudaryColor: "#91A79A",
+      tertiaryColor: "#219653",
     },
     svg: {
       primaryFill: "#27ae60",
@@ -59,7 +60,7 @@ export const themes = {
       primary: "Playfair Display",
       secundary: "sans-serif",
       colorPrimary: "#fefefe",
-      colorSecudary: "#f0f0f0",
+      SecudaryColor: "#f0f0f0",
     },
     svg: {
       primaryFill: "#fefefe",

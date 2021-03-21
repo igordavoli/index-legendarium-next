@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const primaryFont = ({ theme }) => theme.font.primary;
 const primaryBackgroundColor = ({ theme }) => theme.colors.secundary;
-const secundaryFontColor = ({ theme }) => theme.font.colorSecudary;
+const secundaryFontColor = ({ theme }) => theme.font.SecudaryColor;
 export default createGlobalStyle`
   * {
   	margin: 0;
@@ -13,6 +13,7 @@ export default createGlobalStyle`
 
   :root {
 	font-size: 62.5%;
+  scroll-behavior: smooth;
   }
 
   #__next {
@@ -29,12 +30,17 @@ export default createGlobalStyle`
     color: #91A79A;
 	  font-family: ${primaryFont};
   }
+  main {
+    width:  100%;
+    padding: 1rem;
+  }
 
 	h2, 
 	p {
 		margin-bottom: 20px;
 		font-weight: normal;
 		line-height: 35px;
+    font-family: ${primaryFont};
 	}
 
 	h2 {
@@ -52,8 +58,10 @@ export default createGlobalStyle`
  
  @media(min-width: 1025px){
   main {
+    width: 50vw;
     margin-top: 69px;
-    min-height:100vh
+    min-height:100vh;
+    max-width: 750px;
   }
   }
 `;

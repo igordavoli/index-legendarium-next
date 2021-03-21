@@ -7,15 +7,15 @@ import { FormComponent } from "../../components/Styled/FormComponent";
 function FormEdit(props) {
   const router = useRouter();
 
-  const toEditWord = props.props.word;
+  const wordToEdit = props.props.word;
 
-  const [vocable, setVocable] = React.useState(toEditWord.vocable);
-  const [language, setLanguage] = React.useState(toEditWord.language);
-  const [type, setType] = React.useState(toEditWord.type);
-  const [meaning, setMeaning] = React.useState(toEditWord.meaning);
-  const [about, setAbout] = React.useState(toEditWord.about);
-  const [pages, setPages] = React.useState(toEditWord.pages);
-  const [see_too, setSee_too] = React.useState(toEditWord.see_too);
+  const [vocable, setVocable] = React.useState(wordToEdit.vocable);
+  const [language, setLanguage] = React.useState(wordToEdit.language);
+  const [type, setType] = React.useState(wordToEdit.type);
+  const [meaning, setMeaning] = React.useState(wordToEdit.meaning);
+  const [about, setAbout] = React.useState(wordToEdit.about);
+  const [pages, setPages] = React.useState(wordToEdit.pages);
+  const [see_too, setSee_too] = React.useState(wordToEdit.see_too);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -44,10 +44,8 @@ function FormEdit(props) {
   return (
     <FormComponent onSubmit={handleSubmit}>
       <div className='input-block'>
-        <label forhtlm='vocable'>
-          Vocábulo*
-          <spam className='proper'></spam>
-        </label>
+        <label forhtlm='vocable'>Vocábulo*</label>
+
         <input
           required
           name='vocable'
@@ -135,7 +133,7 @@ function FormEdit(props) {
   );
 }
 
-export default function addWord(props) {
+function editWord(props) {
   const displayAddButton = true;
   const word = props;
   return (
@@ -148,15 +146,15 @@ export default function addWord(props) {
   );
 }
 
-export async function getServerSideProps(context) {
+async function getServerSideProps(context) {
   const { id } = context.params;
-  console.log(id);
   const response = await api.get(`/editWord/${id}`);
-
-  console.log(response);
   const word = response.data;
 
   return {
     props: { word },
   };
 }
+
+export default editWord;
+export { getServerSideProps };
