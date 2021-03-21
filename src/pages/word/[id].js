@@ -32,7 +32,6 @@ const WordComponent = styled.div`
   .word-options {
     display: flex;
     align-items: center;
-
     margin-bottom: auto;
   }
 

@@ -1,17 +1,13 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Header } from "../components/Header";
 import { WordsContainer } from "../components/Styled/WordsContaineinerComponent";
 import Link from "../components/Link";
 import { SearchContext } from "../contexts/SearchContext";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
 export default function Home() {
   const displayAddButton = true;
-
   const { searchedWord, word, message } = useContext(SearchContext);
-
-  //useEffect(() => {}, [word, message]);
 
   return (
     <>
@@ -37,13 +33,8 @@ export default function Home() {
                     <Link href={`/word/${word.id}`} children={word.vocable} />
                   </em>
                 </h2>
-
                 <p>{word.meaning}</p>
-                <p>Sobre</p>
-                <p>{word.about}</p>
                 <p>{word.pages}</p>
-                <p>{word.see_too}</p>
-
                 <div className='word-options'>
                   <div
                     className='share'
