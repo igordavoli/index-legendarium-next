@@ -58,8 +58,11 @@ Actions.addWord = styled.a`
     margin-left: 2.5px;
     padding: 2px;
   }
-  .add-icon:hover {
-    background-color: #1a542b3d;
+
+  @media (min-width: 1025px) {
+    .add-icon:hover {
+      background-color: #1a542b3d;
+    }
   }
 `;
 
@@ -75,8 +78,11 @@ Actions.options = styled.a`
   color: #999;
   border-radius: ${({ theme }) => theme.border.radius};
   transition: background-color 200ms;
-  :hover {
-    background-color: #1a542b3d;
+
+  @media (min-width: 1025px) {
+    :hover {
+      background-color: #1a542b3d;
+    }
   }
   .user-icon,
   .options-icon {

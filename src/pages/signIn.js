@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Header } from "../components/Header";
 
 const secundaryBackgroundColor = ({ theme }) => theme.colors.secundaryHover;
 const boxShadow = ({ theme }) => theme.boxShadow;
@@ -6,13 +7,14 @@ const inputBackground = ({ theme }) => theme.colors.inputColor;
 const primaryFontColor = ({ theme }) => theme.font.colorPrimary;
 const borderRadius = ({ theme }) => theme.border.radius;
 const formBackground = ({ theme }) => theme.colors.formBackground;
+const ValidborderColor = ({ theme }) => theme.font.tertiaryColor;
 
-export const FormComponent = styled.form`
+const FormLogIn = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   height: fit-content;
-  width: 95vw;
+  width: 100%;
   padding: 20px 30px 20px 30px;
   background-color: ${formBackground};
   box-shadow: ${boxShadow};
@@ -21,11 +23,6 @@ export const FormComponent = styled.form`
   font-size: 1.5rem;
   color: #9bafa0;
   transition: background-color 200ms;
-
-  h1 {
-    line-height: 3rem;
-    font-style: Playfair Display;
-  }
 
   .input-block {
     margin: 15px 0 15px 0;
@@ -38,25 +35,7 @@ export const FormComponent = styled.form`
     font-family: sans-serif;
   }
 
-  .selectors {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 16rem;
-  }
-  .selectors select {
-    width: 250px;
-    height: 35px;
-    padding: 2.5px;
-    border: none;
-    border-radius: ${borderRadius};
-    background-color: #27ae60ee;
-    color: #fefefe;
-    font-size: 1.5rem;
-  }
-
-  input,
-  textarea {
+  input {
     height: 35px;
     width: 100%;
     padding: 5px;
@@ -70,22 +49,15 @@ export const FormComponent = styled.form`
     color: ${primaryFontColor};
   }
 
-  textarea {
-    height: 100px;
-    resize: vertical;
+  input:valid {
+    border-color: ${ValidborderColor};
   }
 
-  div.button {
-    align-self: center;
-    width: 100%;
-    margin: 0px 20px 20px 20px;
-  }
-
-  .primary-button {
+  button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    padding: 0 20px;
     height: 35px;
     background: #37c77f;
     border-radius: 5px;
@@ -99,31 +71,51 @@ export const FormComponent = styled.form`
     text-decoration: none;
   }
 
-  /*
-  # DESKTOP VERSION #
-*/
-
-  @media (min-width: 642px) {
-    width: 700px;
-
-    h1 {
-      margin-bottom: 20px;
-    }
-
-    .selectors {
-      height: auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    div.button,
-    .primary-button {
-      width: 200px;
-    }
-  }
-
   @media (min-width: 1025px) {
-    width: 100%;
+    /* width: fit-content; */
+    .input-block {
+      width: 40rem;
+    }
   }
 `;
+
+export default function SignIn() {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  console.log(email);
+  console.log(password);
+
+  return (
+    <>
+      <Header />
+      <main>
+        <FormLogIn className='log-in'>
+          <div className='input-block'>
+            <label htmlFor='email'>Email</label>
+            <input
+              required
+              id='email'
+              name='email'
+              type='email'
+              onChange={event => setEmail(event.target.value)}
+              onInvalid={event =>
+                event.target.setCustomValidity("Prencha com seu email")
+              }
+            />
+          </div>
+          <div className='input-block'>
+            <label htmlFor='password'>Senha</label>
+            <input
+              required
+              id='password'
+              name='password'
+              type='password'
+              onChange={event => setPassword(event.target.value)}
+            />
+          </div>
+          <button>Login</button>
+        </FormLogIn>
+      </main>
+    </>
+  );
+}

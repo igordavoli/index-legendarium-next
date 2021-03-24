@@ -46,8 +46,10 @@ export const OptionsComponent = styled.a`
   border-radius: ${borderRadius};
   transition: background-color 300ms;
 
-  :hover {
-    background-color: ${tertiaryHover};
+  @media (min-width: 1025px) {
+    :hover {
+      background-color: ${tertiaryHover};
+    }
   }
 
   .user-icon,

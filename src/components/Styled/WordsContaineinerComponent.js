@@ -126,22 +126,22 @@ export const WordsContainer = styled.main`
       margin-right: 5px;
       border-radius: ${borderRadius};
     }
+  }
+
+  /* Desktop version */
+
+  @media (min-width: 1025px) {
+    width: 100%;
+    max-width: 750px;
+    margin-top: 74px;
+
+    .word {
+      width: 100%;
+    }
 
     .word .edit:hover,
     .word .share:hover {
       background-color: ${secundaryBackgroundColor};
-    }
-
-    /* Desktop version */
-
-    @media (min-width: 1025px) {
-      width: 100%;
-      max-width: 750px;
-      margin-top: 74px;
-
-      .word {
-        width: 100%;
-      }
     }
   }
 `;

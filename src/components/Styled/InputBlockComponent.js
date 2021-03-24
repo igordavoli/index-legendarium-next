@@ -36,7 +36,7 @@ export const InputBlockComponent = styled.div`
     font-family: sans-serif;
     font-size: 1.2rem;
   }
-  
+
   button {
     display: flex;
     justify-content: center;
@@ -50,18 +50,19 @@ export const InputBlockComponent = styled.div`
     transition: background-color 200ms;
     outline: none;
   }
-
-  button:hover {
-    background-color: ${primaryHoverColor};
+  @media (min-width: 1025px) {
+    button:hover {
+      background-color: ${primaryHoverColor};
+    }
   }
 
   button svg {
     width: 17px;
-    height: 17px;  
-    fill: ${primarySvgFill};   
+    height: 17px;
+    fill: ${primarySvgFill};
     transition: background-color 200ms;
   }
-  
+
   /* 
     # IPAD VERSION #
   */

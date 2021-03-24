@@ -19,7 +19,8 @@ function FormAdd(props) {
     event.preventDefault();
 
     // # TEMPORALY HARDCODED #
-    const user_id = "115f3a6a-673c-46c9-a3f4-7d109a9c3472";
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExNWYzYTZhLTY3M2MtNDZjOS1hM2Y0LTdkMTA5YTljMzQ3MiIsImlhdCI6MTYxNjM5ODM1OSwiZXhwIjoxNjE4OTkwMzU5fQ.C7Dp_mDLq83KV_mVw6-nOQz9GsDyAMimfoaumkw2Hsc";
 
     const word = {
       user_id,
@@ -32,7 +33,7 @@ function FormAdd(props) {
       see_too,
     };
 
-    await api.post("addWord", word);
+    await api.post("addWord", word, token);
 
     alert("Salvo");
 

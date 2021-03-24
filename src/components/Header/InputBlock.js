@@ -18,6 +18,9 @@ export function InputBlock() {
           title='Pesquisar'
           value={search}
           onChange={event => setSearch(event.target.value)}
+          onInvalid={event =>
+            event.target.setCustomValidity("preencha o campo")
+          }
         />
         <button type='submit' title='Buscar' alt='Buscar'>
           <motion.svg whileTap={{ scale: 0.8 }}>

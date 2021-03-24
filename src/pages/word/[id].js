@@ -124,9 +124,7 @@ function Word(props) {
 }
 
 async function getServerSideProps(context) {
-  console.log(context);
   const { id } = context.params;
-
   const response = await api.get(`/word/${id}`);
   const word = response.data;
 
