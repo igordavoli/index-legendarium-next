@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Header } from "../components/Header";
-import { WordsContainer } from "../components/Styled/WordsContaineinerComponent";
+import { WordsContainer } from "../StyledComponents/WordsContaineinerComponent";
 import Link from "../components/Link";
 import { SearchContext } from "../contexts/SearchContext";
 import { motion } from "framer-motion";

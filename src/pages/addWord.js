@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Header } from "../components/Header";
-import { FormComponent } from "../components/Styled/FormComponent";
+import { FormComponent } from "../StyledComponents/FormComponent";
 import { useRouter } from "next/router";
 import { api } from "../services/api";
 

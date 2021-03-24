@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { ActionsComponent, OptionsComponent } from "../Styled/ActionsComponent";
+import {
+  ActionsComponent,
+  OptionsComponent,
+} from "../../StyledComponents/ActionsComponent";
 import { OptionsList } from "./OptionsList";
 import Link from "../Link";
-import { AddWordComponent } from "../Styled/AddWordComponent";
+import { AddWordComponent } from "../../StyledComponents/AddWordComponent";
 
 export function Actions(props) {
   const [isOpen, setIsOpen] = useState(false);

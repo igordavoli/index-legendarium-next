@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { Header } from "../../components/Header";
 import { api } from "../../services/api";
-import { FormComponent } from "../../components/Styled/FormComponent";
+import { FormComponent } from "../../StyledComponents/FormComponent";
 
 function FormEdit(props) {
   const router = useRouter();

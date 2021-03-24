@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { InputBlockComponent } from "../Styled/InputBlockComponent";
+import { InputBlockComponent } from "../../StyledComponents/InputBlockComponent";
 import { SearchContext } from "../../contexts/SearchContext";
 
 export function InputBlock() {

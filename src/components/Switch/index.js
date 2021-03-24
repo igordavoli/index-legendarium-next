@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemesContext } from "../../contexts/ThemesContext";
 import { motion } from "framer-motion";
-import { SwitchComponent } from "../Styled/SwitchComponent";
+import { SwitchComponent } from "../../StyledComponents/SwitchComponent";
 
 export default function Switch() {
   const { switchTheme } = useContext(ThemesContext);
