@@ -1,11 +1,10 @@
-import { ThemeStore } from "../contexts/ThemesContext";
-import Theme from "../themes/Theme";
 import Head from "next/head";
+import { LoginProvider } from "../contexts/LoginContext";
 import { SearchProvider } from "../contexts/SearchContext";
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeStore>
+    <LoginProvider>
       <Head>
         <link rel='icon' type='image/x-icon' href='favicon.png' />
         <link rel='preconnect' href='https://fonts.gstatic.com' />
@@ -15,11 +14,10 @@ export default function App({ Component, pageProps }) {
         />
         <title>index Legendarium</title>
       </Head>
-      <Theme>
-        <SearchProvider>
-          <Component {...pageProps} />
-        </SearchProvider>
-      </Theme>
-    </ThemeStore>
+
+      <SearchProvider>
+        <Component {...pageProps} />
+      </SearchProvider>
+    </LoginProvider>
   );
 }
