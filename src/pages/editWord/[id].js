@@ -1,27 +1,29 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "../../components/Header";
 import { api } from "../../services/api";
 import { FormComponent } from "../../StyledComponents/FormComponent";
+import cookies from "js-cookie";
 
 function FormEdit(props) {
   const router = useRouter();
 
   const wordToEdit = props.props.word;
 
-  const [vocable, setVocable] = React.useState(wordToEdit.vocable);
-  const [language, setLanguage] = React.useState(wordToEdit.language);
-  const [type, setType] = React.useState(wordToEdit.type);
-  const [meaning, setMeaning] = React.useState(wordToEdit.meaning);
-  const [about, setAbout] = React.useState(wordToEdit.about);
-  const [pages, setPages] = React.useState(wordToEdit.pages);
-  const [see_too, setSee_too] = React.useState(wordToEdit.see_too);
+  const [vocable, setVocable] = useState(wordToEdit.vocable);
+  const [language, setLanguage] = useState(wordToEdit.language);
+  const [type, setType] = useState(wordToEdit.type);
+  const [meaning, setMeaning] = useState(wordToEdit.meaning);
+  const [about, setAbout] = useState(wordToEdit.about);
+  const [pages, setPages] = useState(wordToEdit.pages);
+  const [see_too, setSee_too] = useState(wordToEdit.see_too);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     // # TEMPORALY HARDCODED #
-    const user_id = "115f3a6a-673c-46c9-a3f4-7d109a9c3472";
+    const token = "115f3a6a-673c-46c9-a3f4-7d109a9c3472";
 
     const word = {
       user_id,
