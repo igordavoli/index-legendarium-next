@@ -33,7 +33,7 @@ function FormAdd(props) {
       see_too,
     };
 
-    await api.post("addWord", word, token);
+    await api.post("addWord", { word, token });
 
     alert("Salvo");
 

@@ -2,11 +2,7 @@ import { motion } from "framer-motion";
 import { InputBlock } from "../components/Header/InputBlock";
 import { OptionsList } from "../components/Header/OptionsList";
 import Link from "../components/Link";
-import {
-  IndexComponent,
-  Actions,
-  LogoBlock,
-} from "../components/StyledComponents/Index";
+import { IndexComponent, Actions, LogoBlock } from "../StyledComponents/Index";
 
 export default function Home() {
   const [isOpen, setIsOpen] = React.useState(false);

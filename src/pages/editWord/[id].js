@@ -34,7 +34,7 @@ function FormEdit(props) {
       see_too,
     };
 
-    await api.post("editWord", word);
+    await api.post("editWord", { word, token });
 
     alert("Dados Salvos");
 

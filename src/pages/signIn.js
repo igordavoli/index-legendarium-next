@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import { Header } from "../components/Header";
+import { LoginContext } from "../contexts/LoginContext";
 
 const secundaryBackgroundColor = ({ theme }) => theme.colors.secundaryHover;
 const boxShadow = ({ theme }) => theme.boxShadow;
@@ -80,16 +82,13 @@ const FormLogIn = styled.form`
 `;
 
 export default function SignIn() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  console.log(email);
-  console.log(password);
+  const { setEmail, setPassword, handlerSubmit } = useContext(LoginContext);
 
   return (
     <>
       <Header />
       <main>
-        <FormLogIn className='log-in'>
+        <FormLogIn onSubmit={handlerSubmit} className='log-in'>
           <div className='input-block'>
             <label htmlFor='email'>Email</label>
             <input
@@ -109,7 +108,7 @@ export default function SignIn() {
               required
               id='password'
               name='password'
-              type='password'
+              type='text'
               onChange={event => setPassword(event.target.value)}
             />
           </div>
