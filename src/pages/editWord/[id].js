@@ -1,16 +1,15 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import { Header } from "../../components/Header";
 import { api } from "../../services/api";
 import { FormComponent } from "../../StyledComponents/FormComponent";
-import cookies from "js-cookie";
+import { LoginContext } from "../../contexts/LoginContext";
 
 function FormEdit(props) {
   const router = useRouter();
-
+  const { isLoged } = useContext(LoginContext);
   const wordToEdit = props.props.word;
-
   const [vocable, setVocable] = useState(wordToEdit.vocable);
   const [language, setLanguage] = useState(wordToEdit.language);
   const [type, setType] = useState(wordToEdit.type);
@@ -21,26 +20,26 @@ function FormEdit(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (isLoged) {
+      const word = {
+        id: router.query.id,
+        vocable,
+        language,
+        type,
+        meaning,
+        about,
+        pages,
+        see_too,
+      };
 
-    // # TEMPORALY HARDCODED #
-    const token = "115f3a6a-673c-46c9-a3f4-7d109a9c3472";
+      const response = await api.post("editWord", { word });
 
-    const word = {
-      user_id,
-      vocable,
-      language,
-      type,
-      meaning,
-      about,
-      pages,
-      see_too,
-    };
+      const { message } = response.data;
 
-    await api.post("editWord", { word, token });
-
-    alert("Dados Salvos");
-
-    router.push(`/words?search=${vocable}`);
+      alert(message ? message : "Dados Salvos");
+    } else {
+      alert("É nessessário esta logado para salvar!");
+    }
   }
 
   return (
@@ -137,7 +136,7 @@ function FormEdit(props) {
 
 function editWord(props) {
   const displayAddButton = true;
-  const word = props;
+
   return (
     <>
       <Header displayAddButton={displayAddButton} />

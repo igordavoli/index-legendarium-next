@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Switch from "../Switch";
 import { OptionsListComponent } from "../../StyledComponents/OptionsListComponent";
+import Link from "../Link";
 
 export function OptionsList({ isOpen, isHover }) {
   const [isOn, setIsOn] = useState(null);
@@ -24,7 +25,9 @@ export function OptionsList({ isOpen, isHover }) {
       transition={{ duration: 0.2 }}
     >
       <ul onClick={event => event.stopPropagation()}>
-        <li>Conta</li>
+        <li>
+          <Link href='/signIn'>Login</Link>
+        </li>
         <li>Privacidade</li>
         <li className='options-item'>
           <div className='activevate-dark-mode'>

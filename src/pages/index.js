@@ -4,7 +4,7 @@ import { OptionsList } from "../components/Header/OptionsList";
 import Link from "../components/Link";
 import { IndexComponent, Actions, LogoBlock } from "../StyledComponents/Index";
 
-export default function Home() {
+export default function Home(props) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isHover, setIsHover] = React.useState(false);
 
@@ -126,3 +126,17 @@ export default function Home() {
     </IndexComponent>
   );
 }
+
+// const getServerSideProps = async context => {
+//   const { token, userEmail, userName, userSince } = context.req.cookies;
+//   return {
+//     props: {
+//       token,
+//       userEmail,
+//       userName,
+//       userSince,
+//     },
+//   };
+// };
+
+// export { getServerSideProps };

@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
+import { useContext } from "react";
 import { Header } from "../components/Header";
 import { FormComponent } from "../StyledComponents/FormComponent";
 import { useRouter } from "next/router";
 import { api } from "../services/api";
+import { LoginContext } from "../contexts/LoginContext";
 
 function FormAdd(props) {
   const router = useRouter();
+  const { isLoged } = useContext(LoginContext);
 
   const [vocable, setVocable] = React.useState("");
   const [language, setLanguage] = React.useState("");
@@ -18,30 +21,35 @@ function FormAdd(props) {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // # TEMPORALY HARDCODED #
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExNWYzYTZhLTY3M2MtNDZjOS1hM2Y0LTdkMTA5YTljMzQ3MiIsImlhdCI6MTYxNjM5ODM1OSwiZXhwIjoxNjE4OTkwMzU5fQ.C7Dp_mDLq83KV_mVw6-nOQz9GsDyAMimfoaumkw2Hsc";
+    if (isLoged) {
+      const word = {
+        vocable,
+        language,
+        type,
+        meaning,
+        about,
+        pages,
+        see_too,
+      };
 
-    const word = {
-      user_id,
-      vocable,
-      language,
-      type,
-      meaning,
-      about,
-      pages,
-      see_too,
-    };
+      const response = await api.post("addWord", word);
 
-    await api.post("addWord", { word, token });
+      const { error } = response.data;
 
-    alert("Salvo");
-
-    router.push("/words");
+      if (error) {
+        alert(error);
+      } else {
+        alert("Salvo");
+      }
+      router.push("/words");
+    } else {
+      alert("");
+    }
   }
 
   return (
     <FormComponent onSubmit={handleSubmit}>
+      {isLoged || <p>É nessessário estar logado.</p>}
       <div className='input-block'>
         <label forhtlm='vocable'>Vocábulo*</label>
         <input
@@ -130,7 +138,8 @@ function FormAdd(props) {
     </FormComponent>
   );
 }
-export default function addWord() {
+
+function addWord() {
   const displayAddButton = false;
 
   return (
@@ -142,3 +151,5 @@ export default function addWord() {
     </>
   );
 }
+
+export default addWord;

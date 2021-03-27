@@ -2,9 +2,9 @@ import Head from "next/head";
 import { LoginProvider } from "../contexts/LoginContext";
 import { SearchProvider } from "../contexts/SearchContext";
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
-    <LoginProvider>
+    <>
       <Head>
         <link rel='icon' type='image/x-icon' href='favicon.png' />
         <link rel='preconnect' href='https://fonts.gstatic.com' />
@@ -15,9 +15,13 @@ export default function App({ Component, pageProps }) {
         <title>index Legendarium</title>
       </Head>
 
-      <SearchProvider>
-        <Component {...pageProps} />
-      </SearchProvider>
-    </LoginProvider>
+      <LoginProvider>
+        <SearchProvider>
+          <Component {...pageProps} />
+        </SearchProvider>
+      </LoginProvider>
+    </>
   );
 }
+
+export default App;
