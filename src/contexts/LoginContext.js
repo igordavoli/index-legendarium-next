@@ -20,6 +20,14 @@ function LoginProvider({ children }) {
     }
   }, []);
 
+  function logout() {
+    cookies.remove("token");
+
+    api.defaults.headers.Authorization = null;
+
+    setIsLoged(false);
+  }
+
   async function handlerSubmit(event) {
     event.preventDefault();
 
@@ -28,7 +36,6 @@ function LoginProvider({ children }) {
     const { token, message } = response.data;
 
     if (message) {
-      console.log(message);
       alert(message);
     } else {
       cookies.set("token", token);
@@ -45,6 +52,7 @@ function LoginProvider({ children }) {
         <LoginContext.Provider
           value={{
             isLoged,
+            logout,
             setEmail,
             setPassword,
             handlerSubmit,

@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import Switch from "../Switch";
 import { OptionsListComponent } from "../../StyledComponents/OptionsListComponent";
 import Link from "../Link";
+import { LoginContext } from "../../contexts/LoginContext";
 
 export function OptionsList({ isOpen, isHover }) {
-  const [isOn, setIsOn] = useState(null);
+  const { isLoged, logout } = useContext(LoginContext);
 
   const state =
     (!isHover && !isOpen && "closed") ||
@@ -25,9 +26,13 @@ export function OptionsList({ isOpen, isHover }) {
       transition={{ duration: 0.2 }}
     >
       <ul onClick={event => event.stopPropagation()}>
-        <li>
-          <Link href='/signIn'>Login</Link>
-        </li>
+        {isLoged ? (
+          <li>Conta</li>
+        ) : (
+          <li>
+            <Link href='/signIn'>Login</Link>
+          </li>
+        )}
         <li>Privacidade</li>
         <li className='options-item'>
           <div className='activevate-dark-mode'>
@@ -36,6 +41,7 @@ export function OptionsList({ isOpen, isHover }) {
           </div>
         </li>
         <li>Configirações</li>
+        {isLoged && <li onClick={logout}>Sair</li>}
       </ul>
     </OptionsListComponent>
   );
