@@ -10,6 +10,8 @@ const LoginContext = createContext();
 function LoginProvider({ children }) {
   const router = useRouter();
   const [isLoged, setIsLoged] = useState(false);
+  const [userName, setUserName] = useState(null);
+
   const [email, setEmail] = useState("");
   const [user_name, setUser_name] = useState("");
   const [password, setPassword] = useState("");
@@ -38,7 +40,7 @@ function LoginProvider({ children }) {
 
     const response = await api.post("signIn", { email, password });
 
-    const { token, message } = response.data;
+    const { token, userNameDB, message } = response.data;
 
     if (message) {
       return alert(message);
@@ -46,17 +48,25 @@ function LoginProvider({ children }) {
 
     cookies.set("token", token);
 
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
+    setUserName(userNameDB);
+    console.log(userNameDB);
     setIsLoged(true);
 
     router.back();
   }
 
   useEffect(() => {
-    if (password && confirmPassword !== "") {
+    if (password !== "" && confirmPassword !== "") {
       setIsPasswordValid(password === confirmPassword);
     }
+
+    if (password && confirmPassword && isPasswordValid) {
+      setConfirmPassword("");
+    }
+
+    console.log(password);
   }, [password, confirmPassword]);
 
   async function handlerSubmitSignUp(event) {
@@ -70,7 +80,7 @@ function LoginProvider({ children }) {
 
     const response = await api.post("signUp", { newUser });
 
-    const { token, message } = response.data;
+    const { token, userNameDB, message } = response.data;
 
     if (message) {
       return alert(message);
@@ -78,8 +88,9 @@ function LoginProvider({ children }) {
 
     cookies.set("token", token);
 
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
+    setUserName(userNameDB);
     setIsLoged(true);
 
     router.replace("/");
@@ -91,10 +102,12 @@ function LoginProvider({ children }) {
         <LoginContext.Provider
           value={{
             isLoged,
+            userName,
             logout,
             setEmail,
             setUser_name,
             setPassword,
+            confirmPassword,
             setConfirmPassword,
             isPasswordValid,
             handlerSubmitSignIn,

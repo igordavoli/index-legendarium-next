@@ -4,9 +4,11 @@ import Switch from "../Switch";
 import { OptionsListComponent } from "../../StyledComponents/OptionsListComponent";
 import Link from "../Link";
 import { LoginContext } from "../../contexts/LoginContext";
+import { useRouter } from "next/router";
 
 export function OptionsList({ isOpen, isHover }) {
-  const { isLoged, logout } = useContext(LoginContext);
+  const router = useRouter();
+  const { isLoged, logout, userName } = useContext(LoginContext);
 
   const state =
     (!isHover && !isOpen && "closed") ||
@@ -27,7 +29,7 @@ export function OptionsList({ isOpen, isHover }) {
     >
       <ul onClick={event => event.stopPropagation()}>
         {isLoged ? (
-          <li>Conta</li>
+          <li onClick={() => router.push(`/${userName}`)}>Conta</li>
         ) : (
           <li>
             <Link href='/signIn'>Login</Link>
@@ -40,7 +42,7 @@ export function OptionsList({ isOpen, isHover }) {
             <Switch action={bool => child(bool)} />
           </div>
         </li>
-        <li>Configirações</li>
+        <li>Configurações</li>
         {isLoged && <li onClick={logout}>Sair</li>}
       </ul>
     </OptionsListComponent>

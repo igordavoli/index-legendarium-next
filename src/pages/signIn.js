@@ -33,14 +33,14 @@ export default function SignIn() {
               required
               id='password'
               name='password'
-              type='text'
+              type='password'
               onChange={event => setPassword(event.target.value)}
             />
             <Link href='/signUp'>
               <a>Criar conta</a>
             </Link>
           </div>
-          <button>Login</button>
+          <button disabled=''>Login</button>
         </FormLogin>
       </main>
     </>

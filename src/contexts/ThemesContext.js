@@ -1,13 +1,14 @@
-import { useState, createContext } from 'react';
+import { useState, createContext } from "react";
 
 export const ThemesContext = createContext({});
 
 export function ThemeStore({ children }) {
-  const [theme, setTheme] = useState('light');
-  const switchTheme = (theme) => setTheme(theme)
+  const [theme, setTheme] = useState("light");
+  const switchTheme = theme => setTheme(theme);
 
   return (
-    <ThemesContext.Provider value={{ switchTheme, theme }} >
+    <ThemesContext.Provider value={{ switchTheme, theme }}>
       {children}
-    </ThemesContext.Provider>)
+    </ThemesContext.Provider>
+  );
 }
