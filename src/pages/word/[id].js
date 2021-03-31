@@ -68,9 +68,9 @@ function Word(props) {
       <main>
         <WordComponent>
           <div className='title'>
-            <h2>
+            <h1>
               <em>{word.vocable}</em>
-            </h2>
+            </h1>
             <div className='word-options'>
               <div className='share' alt='Compartilhar' title='Compartilhar'>
                 <motion.svg
@@ -112,11 +112,11 @@ function Word(props) {
               </Link>
             </div>
           </div>
-          <p>{word.meaning}</p>
-          <p>Sobre</p>
-          <p>{word.about}</p>
-          <p>{word.pages}</p>
-          <p>{word.see_too}</p>
+          <article>{word.meaning}</article>
+
+          <article>{word.about}</article>
+          <article>{word.pages}</article>
+          <article>{word.see_too}</article>
         </WordComponent>
       </main>
     </>

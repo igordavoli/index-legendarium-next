@@ -65,8 +65,6 @@ function LoginProvider({ children }) {
     if (password && confirmPassword && isPasswordValid) {
       setConfirmPassword("");
     }
-
-    console.log(password);
   }, [password, confirmPassword]);
 
   async function handlerSubmitSignUp(event) {

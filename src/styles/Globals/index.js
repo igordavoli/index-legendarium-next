@@ -34,16 +34,19 @@ export default createGlobalStyle`
     width:  100%;
     padding: 1rem;
   }
-
+  
+  h1,
 	h2, 
-	p {
+	p,
+  article {
 		margin-bottom: 20px;
 		font-weight: normal;
 		line-height: 35px;
     font-family: ${primaryFont};
 	}
 
-	h2 {
+	h1,
+  h2 {
 		color: ${secundaryFontColor};
 	}
 

@@ -60,9 +60,6 @@ Actions.addWord = styled.a`
   }
 
   @media (min-width: 1025px) {
-    .add-icon:hover {
-      background-color: #1a542b3d;
-    }
   }
 `;
 
@@ -117,37 +114,47 @@ const LogoBlock = styled.a`
   flex-direction: column;
   align-items: center;
   margin: 100px 0 20px 0;
+
   .logo-icon {
     width: 8.5rem;
-    fill: #fefefe;
-    transition: background-color 200ms;
+    overflow: visible;
+    stroke: red;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    /* transition: background-color 200ms; */
   }
+
   .logo-title {
     width: 275px;
     height: 45px;
     fill: #fefefe;
-    transition: background-color 200ms;
+    /* transition: background-color 200ms; */
   }
   @media (min-width: 765px) {
     margin-top: 70px;
     align-self: center;
     .logo-icon {
       width: 10rem;
-      fill: #fefefe;
-      transition: background-color 200ms;
+
+      /* transition: background-color 200ms; */
     }
     .logo-title {
       width: 350px;
       height: 45px;
-      fill: #fefefe;
-      transition: background-color 200ms;
+      /* transition: background-color 200ms; */
     }
     @media (min-width: 1025px) {
       margin-top: 25vh;
       width: 300px;
+      .add-icon:hover {
+        background-color: #1a542b3d;
+      }
+
       .logo-icon {
         width: 7rem;
       }
+
       .logo-title {
         width: 300px;
       }
