@@ -19,10 +19,13 @@ function LoginProvider({ children }) {
   const [isPasswordValid, setIsPasswordValid] = useState("");
 
   useEffect(() => {
-    const storedCoockie = cookies.get("token");
+    const storedToken = cookies.get("token");
+    const storedUserName = cookies.get("userName");
 
-    if (storedCoockie) {
-      api.defaults.headers.Authorization = `Bearer ${storedCoockie}`;
+    if (storedToken && storedUserName) {
+      api.defaults.headers.Authorization = `Bearer ${storedToken}`;
+
+      setUserName(storedUserName);
       setIsLoged(true);
     }
   }, []);
@@ -38,20 +41,26 @@ function LoginProvider({ children }) {
   async function handlerSubmitSignIn(event) {
     event.preventDefault();
 
-    const response = await api.post("signIn", { email, password });
+    let response = null;
 
-    const { token, userNameDB, message } = response.data;
+    try {
+      response = await api.post("signIn", { email, password });
+    } catch (error) {
+      if (error.response) return alert(error.response.data.message);
+    }
 
-    if (message) {
-      return alert(message);
+    const { token, userNameDB } = response.data;
+
+    if (!token || !userNameDB) {
+      return;
     }
 
     cookies.set("token", token);
+    cookies.set("userName", userNameDB);
 
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
     setUserName(userNameDB);
-    console.log(userNameDB);
     setIsLoged(true);
 
     router.back();

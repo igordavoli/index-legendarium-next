@@ -149,7 +149,13 @@ function editWord(props) {
 
 async function getServerSideProps(context) {
   const { id } = context.params;
-  const response = await api.get(`/editWord/${id}`);
+  let response = null;
+
+  try {
+    response = await api.get(`/editWord/${id}`);
+  } catch (error) {
+    return alert("Connection server error!");
+  }
   const word = response.data;
 
   return {

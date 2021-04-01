@@ -15,17 +15,22 @@ function SearchProvider({ children }) {
   async function handlerSearchSubmit(event) {
     event.preventDefault();
 
-    const response = await api.get(`/words?search=${search}`);
+    let response = null;
 
-    if ("message" in response.data) {
-      setMessage(response.data.message);
-      setSearchedWord(response.data.searchedWord);
+    try {
+      response = await api.get(`/words?search=${search}`);
+    } catch (error) {
+      const { message, searchedWord } = error.response.data;
+
+      setMessage(message);
+      setSearchedWord(searchedWord);
       setWord(null);
-    } else {
-      setWord(response.data);
-      setMessage(null);
-      setSearchedWord(null);
+      return;
     }
+
+    setWord(response.data);
+    setMessage(null);
+    setSearchedWord(null);
 
     router.push(`/words?search=${search}`);
   }

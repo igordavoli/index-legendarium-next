@@ -94,7 +94,6 @@ export default function SignUp(props) {
 export const getServerSideProps = async context => {
   const { token } = await context.req.cookies;
 
-  console.log(token);
   const response = await api.get("/user", {
     headers: { Authorization: `Bearer ${token}` },
   });
