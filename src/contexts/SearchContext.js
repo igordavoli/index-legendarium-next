@@ -1,6 +1,6 @@
-import { useState, createContext } from 'react';
-import { api } from '../services/api';
-import { useRouter } from 'next/router';
+import { useState, createContext } from "react";
+import { api } from "../services/api";
+import { useRouter } from "next/router";
 
 const SearchContext = createContext({});
 
@@ -19,12 +19,14 @@ function SearchProvider({ children }) {
 
     try {
       response = await api.get(`/words?search=${search}`);
+
     } catch (error) {
-      const { message, searchedWord } = error.response.data;
+      const { message } = error.response.data;
 
       setMessage(message);
-      setSearchedWord(searchedWord);
+      setSearchedWord(search);
       setWord(null);
+
       return;
     }
 
@@ -34,6 +36,7 @@ function SearchProvider({ children }) {
 
     router.push(`/words?search=${search}`);
   }
+
   return (
     <SearchContext.Provider
       value={{
