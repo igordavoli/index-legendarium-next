@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
-import { motion } from "framer-motion";
-import Switch from "../Switch";
-import { OptionsListComponent } from "../../StyledComponents/OptionsListComponent";
-import Link from "../Link";
-import { LoginContext } from "../../contexts/LoginContext";
-import { useRouter } from "next/router";
+import { useState, useContext } from 'react';
+import { motion } from 'framer-motion';
+import Switch from '../Switch';
+import { OptionsListComponent } from '../../StyledComponents/OptionsListComponent';
+import Link from '../Link';
+import { LoginContext } from '../../contexts/LoginContext';
+import { useRouter } from 'next/router';
 
 export function OptionsList({ isOpen, isHover }) {
   const router = useRouter();
@@ -18,7 +18,7 @@ export function OptionsList({ isOpen, isHover }) {
   return (
     <OptionsListComponent
       as={motion.div}
-      initial='closed'
+      initial="closed"
       animate={state}
       variants={{
         closed: { opacity: 0, display: "none" },
@@ -32,13 +32,13 @@ export function OptionsList({ isOpen, isHover }) {
           <li onClick={() => router.push(`/${userName}`)}>Conta</li>
         ) : (
           <li>
-            <Link href='/signIn'>Login</Link>
+            <Link href="/signIn">Login</Link>
           </li>
         )}
         <li>Privacidade</li>
-        <li className='options-item'>
-          <div className='activevate-dark-mode'>
-            <label htmlFor='darkMode'>Modo escuro</label>
+        <li className="options-item">
+          <div className="activevate-dark-mode">
+            <label htmlFor="darkMode">Modo escuro</label>
             <Switch action={bool => child(bool)} />
           </div>
         </li>

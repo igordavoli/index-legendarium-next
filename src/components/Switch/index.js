@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { ThemesContext } from "../../contexts/ThemesContext";
-import { motion } from "framer-motion";
-import { SwitchComponent } from "../../StyledComponents/SwitchComponent";
+import { useContext } from 'react';
+import { ThemesContext } from '../../contexts/ThemesContext';
+import { motion } from 'framer-motion';
+import { SwitchComponent } from '../../StyledComponents/SwitchComponent';
 
 export default function Switch() {
   const { switchTheme } = useContext(ThemesContext);
@@ -12,12 +12,12 @@ export default function Switch() {
   return (
     <SwitchComponent>
       <input
-        id='darkMode'
-        className='switch switch-shadow'
-        type='checkbox'
+        id="darkMode"
+        className="switch switch-shadow"
+        type="checkbox"
         onClick={() => setIsChecked(!isChecked)}
       />
-      <label htmlFor='darkMode'>
+      <label htmlFor="darkMode">
         <motion.div
           animate={isChecked ? "isOn" : null}
           initial={{ x: 0 }}

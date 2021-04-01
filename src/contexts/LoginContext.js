@@ -1,9 +1,9 @@
-import { useState, createContext, useEffect } from "react";
-import { useRouter } from "next/router";
-import { ThemeStore } from "./ThemesContext";
-import Theme from "../themes/Theme";
-import { api } from "../services/api";
-import cookies from "js-cookie";
+import { useState, createContext, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { ThemeStore } from './ThemesContext';
+import Theme from '../themes/Theme';
+import { api } from '../services/api';
+import cookies from 'js-cookie';
 
 const LoginContext = createContext();
 

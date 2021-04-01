@@ -1,6 +1,6 @@
-import { useState, createContext } from "react";
-import { api } from "../services/api";
-import { useRouter } from "next/router";
+import { useState, createContext } from 'react';
+import { api } from '../services/api';
+import { useRouter } from 'next/router';
 
 const SearchContext = createContext({});
 
