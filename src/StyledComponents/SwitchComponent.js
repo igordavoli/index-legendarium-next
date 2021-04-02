@@ -21,7 +21,7 @@ label {
   transition: background-color  300ms;
 	}
 
-.switch:checked + label{
+input[value = "true"] + label{
   background-color: #77e9a2
 }
 
@@ -35,7 +35,7 @@ label div {
   transition: background-color 200ms;
 }
 
-.switch:checked + label div {
+input[value = "true"] + label div {
   background-color: #8f8f8f;
   border-color: #8f8f8f;
 }

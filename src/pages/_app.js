@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { LoginProvider } from '../contexts/LoginContext';
 import { SearchProvider } from '../contexts/SearchContext';
+import { ThemeStore } from '../contexts/ThemesContext';
+import Theme from '../themes/Theme';
+
 
 function App({ Component, pageProps }) {
   return (
@@ -14,12 +17,15 @@ function App({ Component, pageProps }) {
         />
         <title>index Legendarium</title>
       </Head>
-
-      <LoginProvider>
-        <SearchProvider>
-          <Component {...pageProps} />
-        </SearchProvider>
-      </LoginProvider>
+      <ThemeStore >
+        <Theme>
+          <LoginProvider >
+            <SearchProvider>
+              <Component {...pageProps} />
+            </SearchProvider>
+          </LoginProvider>
+        </Theme>
+      </ThemeStore >
     </>
   );
 }

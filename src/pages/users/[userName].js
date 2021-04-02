@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { Header } from '../components/Header';
-import { FormLogin } from '../StyledComponents/FormLogin';
-import { LoginContext } from '../contexts/LoginContext';
-import { api } from '../services/api';
+import { Header } from '../../components/Header';
+import { FormLogin } from '../../StyledComponents/FormLogin';
+import { LoginContext } from '../../contexts/LoginContext';
+import { api } from '../../services/api';
 
 export default function SignUp(props) {
   const { userData } = props;

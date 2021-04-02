@@ -1,7 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { ThemeStore } from './ThemesContext';
-import Theme from '../themes/Theme';
 import { api } from '../services/api';
 import cookies from 'js-cookie';
 
@@ -104,27 +102,25 @@ function LoginProvider({ children }) {
   }
 
   return (
-    <ThemeStore>
-      <Theme>
-        <LoginContext.Provider
-          value={{
-            isLoged,
-            userName,
-            logout,
-            setEmail,
-            setUser_name,
-            setPassword,
-            confirmPassword,
-            setConfirmPassword,
-            isPasswordValid,
-            handlerSubmitSignIn,
-            handlerSubmitSignUp,
-          }}
-        >
-          {children}
-        </LoginContext.Provider>
-      </Theme>
-    </ThemeStore>
+
+    <LoginContext.Provider
+      value={{
+        isLoged,
+        userName,
+        logout,
+        setEmail,
+        setUser_name,
+        setPassword,
+        confirmPassword,
+        setConfirmPassword,
+        isPasswordValid,
+        handlerSubmitSignIn,
+        handlerSubmitSignUp,
+      }}
+    >
+      {children}
+    </LoginContext.Provider>
+
   );
 }
 

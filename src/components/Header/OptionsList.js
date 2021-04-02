@@ -29,7 +29,7 @@ export function OptionsList({ isOpen, isHover }) {
     >
       <ul onClick={event => event.stopPropagation()}>
         {isLoged ? (
-          <li onClick={() => router.push(`/${userName}`)}>Conta</li>
+          <li onClick={() => router.push(`/users/${userName}`)}>Conta</li>
         ) : (
           <li>
             <Link href="/signIn">Login</Link>
@@ -39,7 +39,7 @@ export function OptionsList({ isOpen, isHover }) {
         <li className="options-item">
           <div className="activevate-dark-mode">
             <label htmlFor="darkMode">Modo escuro</label>
-            <Switch action={bool => child(bool)} />
+            <Switch />
           </div>
         </li>
         <li>Configurações</li>
