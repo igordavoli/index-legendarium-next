@@ -35,6 +35,7 @@ export default function Home() {
                 </h2>
                 <p>{word.meaning}</p>
                 <p>{word.pages}</p>
+                <p>{String(process.env.URL)}</p>
                 <div className='word-options'>
                   <div
                     className='share'
