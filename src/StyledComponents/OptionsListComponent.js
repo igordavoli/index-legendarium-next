@@ -47,7 +47,7 @@ export const OptionsListComponent = styled.div`
     # DESKTOP VERSION #
   */
 
-  @media (min-width: 642px) {
+  @media (min-width: 1025px) {
     top: 55px;
     right: 17px;
   }
